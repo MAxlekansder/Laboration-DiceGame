@@ -24,9 +24,11 @@ public class Tarningar {
         return antalTarning;
     }
 
-    public int sidorTarningar() {
+    //stoppa in ett värde från input direkt, istället för att återuppa det hela tiden?
+    //kommer basera maxtaket med random beroende på sidorna
+    public int sidorTarningar(int antalSidor) {
 
-        int antalSidor = Input.intInput();
+        antalSidor = Input.intInput();
 
         return antalSidor;
     }
