@@ -1,5 +1,8 @@
 package com.AlexanderHasslund.demo;
+import java.util.IllegalFormatException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.*;
 
 public class Input {
 
@@ -11,7 +14,7 @@ public class Input {
             Scanner stringScan = new Scanner(System.in);
             stringInput = stringScan.nextLine();
 
-        } catch (java.util.InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Du behöver skriva in ett strängvärde för att komma vidare");
         }
         return stringInput;

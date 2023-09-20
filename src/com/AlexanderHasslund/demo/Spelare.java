@@ -4,13 +4,15 @@ public class Spelare {
 
     String namn;
     int alder;
-    int spelareId;
+    String[] namnArr;
+    int[] alderArr;
+    //int spelareId;
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
-    public Spelare(String name, int age) {
-        this.namn = name;
-        this.alder = age;
-        this.spelareId = spelareId;
+    public Spelare(String namn, int alder) {
+        this.namn = namn;
+        this.alder = alder;
+       // this.spelareId = spelareId;
         //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
 
         //bygg en for-loop här som lägger till unika ID per spelare för att sen kunna söka
@@ -23,6 +25,17 @@ public class Spelare {
             this.spelarId = Spelare.spelare()[i +1] ;
          */
     }
+
+    public void spelareArr() {
+
+
+    }
+
+    /*TODO ÅTERKALLA EN METOD FÖR ATT SPARA SPELAREN I ARRAY?
+    public SpelareArr(String[] namnArr, int[] alderArr) {
+        this.namnArr = namnArr;
+        this.alderArr = alderArr;
+    }*/
 
     //se över om det ska läggas till som en parameter
     public static int spelareAntal() {

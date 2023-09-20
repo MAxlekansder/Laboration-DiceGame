@@ -8,7 +8,7 @@ public class Tarningar {
 
 
     //se över om det ska läggas in som en parameter
-    public static int tarningarAntal() {
+    public int tarningarAntal() {
         int antalTarningar = Input.intInput();
         return antalTarningar;
     }
@@ -20,7 +20,7 @@ public class Tarningar {
     }
 
 
-    public static int[] tarningarArray() {
+    public int[] tarningarArray() {
 
         //lite för klurlig lösning just nu
         Random tarningRand = new Random();
