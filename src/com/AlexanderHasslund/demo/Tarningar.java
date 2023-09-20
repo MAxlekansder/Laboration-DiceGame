@@ -53,6 +53,9 @@ public class Tarningar {
 
     // släng in hur många sidor tärningarna ska ha?
 
+    //lista ut hur jag ska lägga till värdet och hur jag slår ut det i arrayen...
+    //tror jag har en plan här <-- kika lite merpå den
+
     public void kastaTarning() {
 
 
