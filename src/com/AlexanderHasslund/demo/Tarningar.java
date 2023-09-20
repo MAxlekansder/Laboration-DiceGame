@@ -8,7 +8,7 @@ public class Tarningar {
 
 
     //se över om det ska läggas in som en parameter
-    public int tarningarAntal() {
+    public int antalTarningar() {
         int antalTarningar = Input.intInput();
         return antalTarningar;
     }
@@ -20,14 +20,21 @@ public class Tarningar {
     }
 
 
-    public int[] tarningarArray() {
+    public void tarningarArray(int antalTarningar, int antalSidor) {
+
 
         //lite för klurlig lösning just nu
         Random tarningRand = new Random();
-        int[] antalTarningArray = new int[0];
+        //den kör om frågan igen...
+
+        int[] antalTarningArray = new int[antalTarningar];
         //System.out.print("Hur många tärningar per spelare?: ");
+        int tarningRandSida = tarningRand.nextInt(antalSidor) +1;
+        System.out.println(tarningRandSida);
+        System.out.println(Arrays.toString(antalTarningArray));
+        /*
         try {
-            antalTarningArray = new int[Input.intInput()];
+            //antalTarningArray = new int[Input.intInput()];
             System.out.println(Arrays.toString(antalTarningArray) + " " + antalTarningArray.length);
 
 
@@ -35,7 +42,9 @@ public class Tarningar {
             System.out.println("Du behöver skriver in ett heltal för antalet tärningar! <-- i metod tarning rad 28");
         }
 
-        return antalTarningArray;
+
+         */
+        //return antalTarningArray;
     }
 
     //stoppa in ett värde från input direkt, istället för att återuppa det hela tiden?
@@ -44,7 +53,7 @@ public class Tarningar {
 
     // släng in hur många sidor tärningarna ska ha?
 
-    public static void kastaTarning() {
+    public void kastaTarning() {
 
 
     }
