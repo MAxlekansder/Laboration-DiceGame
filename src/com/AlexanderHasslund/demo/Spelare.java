@@ -4,37 +4,38 @@ public class Spelare {
 
     String namn;
     int alder;
-    String[] namnArr;
-    int[] alderArr;
+    int totalSumma;
+    //String[] namnArr;
+    //int[] alderArr;
     //int spelareId;
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
-    public Spelare(String namn, int alder) {
+    public Spelare(String namn, int alder) { //<-- tog bort int totalSumma...
         this.namn = namn;
         this.alder = alder;
+        //känns som att den här kommer att förstöra för mig senare
+        int totalSumma = 0;
+        //försök att få in uniktId här med
+        //int UniktId =
+        //this.totalSumma = totalSumma
 
-       // this.spelareId = spelareId;
-        //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
-
-        //bygg en for-loop här som lägger till unika ID per spelare för att sen kunna söka
-        /*
-        for (int i = 0; i < Spelare.length; i++) {
-            this.spelareId = spelareId[i +1]
-        {
-
-        for (int i = 0; i < Spelare.spelare().length; i++) {
-            this.spelarId = Spelare.spelare()[i +1] ;
-         */
     }
+
     //används för att overrida så att objekten i arraylist printas...
-  /*  public String toString() {
+   public String toString() {
         return (
-                " Namn " + this.namn + " " +
-                "alder "+ this.alder
+                "Namn: " + this.namn.toUpperCase() + " || " +
+                "Ålder: "+ this.alder + " || " + "Summa tärningar: " + this.totalSumma
+                 + "\n"
                 );
         //bästa stället att lagra allt om spelaren här?
-    }*/
+    }
+    //här kan vi sätta ut direkta summan och summera ihop alla kast per spelare!
 
+    public int sumTotalPoang(int totalSumma) {
+
+        return this.totalSumma = totalSumma;
+    }
 
     public void spelareArr() {
 
@@ -60,6 +61,19 @@ public class Spelare {
     }
     /*
     //placeholder
-     */
+
+       // this.spelareId = spelareId;
+        //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
+
+        //bygg en for-loop här som lägger till unika ID per spelare för att sen kunna söka
+        /*
+        for (int i = 0; i < Spelare.length; i++) {
+            this.spelareId = spelareId[i +1]
+        {
+
+        for (int i = 0; i < Spelare.spelare().length; i++) {
+            this.spelarId = Spelare.spelare()[i +1] ;
+         */
+
 }
 

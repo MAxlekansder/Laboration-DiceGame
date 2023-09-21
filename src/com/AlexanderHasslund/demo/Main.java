@@ -3,9 +3,9 @@ package com.AlexanderHasslund.demo;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Menu;
 import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.MissingFormatWidthException;
 
 public class Main {
@@ -14,10 +14,17 @@ public class Main {
         Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
 
+
+
         StartUpGame.startUpGame();
 
         System.out.println("Hur många spelare? ");
         int sparaAntalSpelare = Input.intInput();
+
+        System.out.println("Hur många rundor? ");
+        int antalRundor = Input.intInput();
+
+
 
         /* TODO PLACEHOLDER FÖR SPELARE*/
 
@@ -30,8 +37,12 @@ public class Main {
                 //kallar på menyvalen i klass Menu
                 myMenu.menu();
                 int användarVal = Input.intInput();
+                //lite osäker på hur jag ska instansiera detta? Känns felaktigt...
+                //Behålla totalSumma här eller utanför?
+                //int totalSumma = 0;
 
                 switch (användarVal) {
+                    // flytta ut case 1 utanför och regga spelare först?
                     case 1:
                         //System.out.println("Ange namn och ålder på spelaren nedan!: ");
                         //Spelare nySpelare = new Spelare(Input.stringInput(), Input.intInput());
@@ -42,20 +53,22 @@ public class Main {
                         ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
                         for (int i = 0; i < sparaAntalSpelare; i++) {
                             System.out.println("Ange namn och ålder för vardera spelare: ");
+                            //nu lägger jag till totalSumma för att se hur den agerar...
                             Spelare nySpelare = new Spelare(Input.stringInput(), Input.intInput());
                             nySpelareArr.add(nySpelare);
                         }
-                        System.out.println("Det här är ArrayList --> " + Arrays.deepToString(nySpelareArr.toArray()));
-                        System.out.println("Det här är ArrayList 2 --> "+ nySpelareArr.toString());
-                        System.out.println("Det här är ArrayList 3 --> " + nySpelareArr);
-                        for (int i = 0; i < nySpelareArr.size(); i++) {
-                            System.out.println(i);
-                            //System.out.println(Arrays.deepToString(list.));
-                            System.out.println(nySpelareArr.get(i));
-                            System.out.println("i for-loopen --> " + nySpelareArr);
-                            System.out.println(nySpelareArr.get(0));
-                            System.out.println(nySpelareArr.get(1));
-                        }
+
+                            //fungerar bra men formeringen kanske ska flyttas? Ser fluffigt ut
+                            for (int i = 0; i < nySpelareArr.size(); i ++) {
+                                int uniktSpelarId = i + 1;
+
+                                //desto mer jag fyller ut, desto mer känner jag att det behövs flyttas ut till: interaktionsStruktur
+                                System.out.println(String.format("%-20s", "\033[1;33m --- SPELARE ---"));
+                                System.out.print("\033[1;33mSPELARE " + uniktSpelarId + "\u001B[0m ");
+                                System.out.println(nySpelareArr.get(i).toString());
+                            }
+
+
                         //lägg spelare här eller innan?
                         // släng in namnen här istället där uppe <--
                         break;
@@ -80,10 +93,16 @@ public class Main {
                         //kombinera spelare och tärningar
                         break;
                     case 4:
+
                         //återkalla scoreboard, vem leder? Ta med sort och räkna ihop
                         //kan vi skapa en scoreboard?
                         //sortera också - inkludera här -> fixa en bineary search
-                        /* FIXME KÖR TVÅ GAME MODES!! SÄTT IN EN UTSLAGSTÄVLING! DÄR VI KÖR ARRAYLIST.POP */
+                        //FIXME efter en runda presentera resultatet!!! och sortera vem som leder!!
+
+                        /* FIXME KÖR TVÅ GAME MODES!! SÄTT IN EN UTSLAGSTÄVLING! DÄR VI KÖR ARRAYLIST.POP
+                        *   Kunna hela tiden veta vem som leder?
+                        *   ta med runder så det går att sumera något */
+
                         break;
                     case 5:
                         System.out.println("Tack för att du spelade!");
