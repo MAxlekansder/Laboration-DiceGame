@@ -25,7 +25,8 @@ public class Spelare {
    public String toString() {
         return (
                 "Namn: " + this.namn.toUpperCase() + " || " +
-                "Ålder: "+ this.alder + " || " + "Summa tärningar: " + this.totalSumma
+                "Ålder: "+ this.alder + " || " +
+                "Summa tärningar: " + this.totalSumma
                  + "\n"
                 );
         //bästa stället att lagra allt om spelaren här?
@@ -33,7 +34,7 @@ public class Spelare {
     //här kan vi sätta ut direkta summan och summera ihop alla kast per spelare!
 
     public int sumTotalPoang(int totalSumma) {
-
+        //stoppa in summan av arrayen / tärningarna här -> därför finns det en parameter
         return this.totalSumma = totalSumma;
     }
 

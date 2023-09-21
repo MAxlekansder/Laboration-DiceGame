@@ -13,7 +13,7 @@ public class Main {
         //instansiera allt här
         Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
-
+        boolean isPlaying = true;
 
 
         StartUpGame.startUpGame();
@@ -25,11 +25,7 @@ public class Main {
         int antalRundor = Input.intInput();
 
 
-
         /* TODO PLACEHOLDER FÖR SPELARE*/
-
-
-        boolean isPlaying = true;
 
 
         do {
@@ -84,6 +80,26 @@ public class Main {
 
                         System.out.println("check");
                         tarning.tarningarArray(sparatAntal, sparadSida);
+
+                        for (int i = 0; i < antalRundor; i++) {
+                            //kasta x antal rundor och lagra dem...
+                            //add funktion per array
+                            //bundet till spelaren?
+                            //hur lagrar jag det?
+
+                            /* 3 personer kastar 2-sidig tärning 3 gånger
+                                ((rand tak 2) * 3) * 3
+                                array?
+                                SPELARE 1: [1,2,1] = skriv till sum 4
+                                SPELARE 2: [2,1,2] = skriv till sum 5
+
+                                efter det sortera - nu leder spelare2
+                                SCOREBOARD
+                                SPELARE 2: NAMNx total summa: 5
+                                SPELREA 1: NAMNy total summa: 4
+
+                             */
+                        }
 
                         //välja antalet tärningar
                         //rulla här med? ta med if ()
