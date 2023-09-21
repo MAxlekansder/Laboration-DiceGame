@@ -3,6 +3,9 @@ package com.AlexanderHasslund.demo;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Menu;
 import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.MissingFormatWidthException;
 
 public class Main {
@@ -30,13 +33,33 @@ public class Main {
 
                 switch (användarVal) {
                     case 1:
-                        System.out.println("Ange namn och ålder på spelaren nedan!: ");
-                        Spelare nySpelare = new Spelare(Input.stringInput(), Input.intInput());
+                        //System.out.println("Ange namn och ålder på spelaren nedan!: ");
+                        //Spelare nySpelare = new Spelare(Input.stringInput(), Input.intInput());
                         //jag vill nog ha vardera spelare bunden till antalet spelare?
-                        System.out.println(nySpelare.toString());
+                        //System.out.println(nySpelare.toString());
+
+                        //det här stycket skapar spelare baserat på antalet som spelar --> skriver till klass Spelare
+                        ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
+                        for (int i = 0; i < sparaAntalSpelare; i++) {
+                            System.out.println("Ange namn och ålder för vardera spelare: ");
+                            Spelare nySpelare = new Spelare(Input.stringInput(), Input.intInput());
+                            nySpelareArr.add(nySpelare);
+                        }
+                        System.out.println("Det här är ArrayList --> " + Arrays.deepToString(nySpelareArr.toArray()));
+                        System.out.println("Det här är ArrayList 2 --> "+ nySpelareArr.toString());
+                        System.out.println("Det här är ArrayList 3 --> " + nySpelareArr);
+                        for (int i = 0; i < nySpelareArr.size(); i++) {
+                            System.out.println(i);
+                            //System.out.println(Arrays.deepToString(list.));
+                            System.out.println(nySpelareArr.get(i));
+                            System.out.println("i for-loopen --> " + nySpelareArr);
+                            System.out.println(nySpelareArr.get(0));
+                            System.out.println(nySpelareArr.get(1));
+                        }
                         //lägg spelare här eller innan?
                         // släng in namnen här istället där uppe <--
                         break;
+
                     case 2:
                         System.out.println("Hur många sidor ska tärningen ha?");
                         int sparadSida = tarning.sidorTarningar();
@@ -49,16 +72,18 @@ public class Main {
                         System.out.println("check");
                         tarning.tarningarArray(sparatAntal, sparadSida);
 
-
                         //välja antalet tärningar
                         //rulla här med? ta med if ()
                         break;
                     case 3:
                         //rulla här eller i case 2?
+                        //kombinera spelare och tärningar
                         break;
                     case 4:
                         //återkalla scoreboard, vem leder? Ta med sort och räkna ihop
                         //kan vi skapa en scoreboard?
+                        //sortera också - inkludera här -> fixa en bineary search
+                        /* FIXME KÖR TVÅ GAME MODES!! SÄTT IN EN UTSLAGSTÄVLING! DÄR VI KÖR ARRAYLIST.POP */
                         break;
                     case 5:
                         System.out.println("Tack för att du spelade!");

@@ -12,6 +12,7 @@ public class Spelare {
     public Spelare(String namn, int alder) {
         this.namn = namn;
         this.alder = alder;
+
        // this.spelareId = spelareId;
         //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
 
@@ -25,6 +26,15 @@ public class Spelare {
             this.spelarId = Spelare.spelare()[i +1] ;
          */
     }
+    //används för att overrida så att objekten i arraylist printas...
+  /*  public String toString() {
+        return (
+                " Namn " + this.namn + " " +
+                "alder "+ this.alder
+                );
+        //bästa stället att lagra allt om spelaren här?
+    }*/
+
 
     public void spelareArr() {
 
@@ -46,13 +56,10 @@ public class Spelare {
     //bör hålla det här för att sen kunna dela upp det
     public void arrayList() {
 
-    }
 
+    }
+    /*
     //placeholder
-    public String toString() {
-        return namn + " " + alder;
-
-        //bästa stället att lagra allt om spelaren här?
-    }
+     */
 }
 
