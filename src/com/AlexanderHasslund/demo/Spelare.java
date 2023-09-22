@@ -54,7 +54,7 @@ public class Spelare {
     }*/
 
     //se över om det ska läggas till som en parameter
-    public static int spelareAntal() {
+    public int spelareAntal() {
         int antalSpelare = Input.intInput();
         return antalSpelare;
     }

@@ -1,5 +1,7 @@
 package com.AlexanderHasslund.demo;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -19,6 +21,27 @@ public class Tarningar {
         return antalSidor;
     }
 
+    public void tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
+        //lite för klurlig lösning just nu
+        //Spelare spelare = new Spelare();
+        //int tarningSpelare = spelare.spelareAntal();
+        Random tarningRand = new Random();
+        //den kör om frågan igen...
+        int tarningRandSida = 0;
+        int[][] antalTarningArray2 = new int[antalSpelare][antalTarningar];
+        //System.out.print("Hur många tärningar per spelare?: ");
+        for (int i = 0; i < antalTarningArray2.length; i++) {
+            for (int j = 0; j < antalTarningar; j++) {
+                antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
+            }
+
+            //här kanske är ett bra tillfälle att få in spelare?
+            //och även kunna göra summeringen per array för att sen tilldela det till totalSumma...!!!
+
+
+        }
+
+    }
 
     public void tarningarArray(int antalTarningar, int antalSidor) {
 
@@ -61,6 +84,15 @@ public class Tarningar {
     //lista ut hur jag ska lägga till värdet och hur jag slår ut det i arrayen...
     //tror jag har en plan här <-- kika lite merpå den
 
+    /*
+      if (antalTarningArray2[i][antalTarningar] == 0) {
+                System.out.println("första klar!");
+                System.out.println(Arrays.deepToString(antalTarningArray2));
+            } else {
+                System.out.println("Nästa på tur!");
+                System.out.println(Arrays.deepToString(antalTarningArray2));
+            }
+     */
     public void kastaTarning() {
 
         //mata in random här istället?

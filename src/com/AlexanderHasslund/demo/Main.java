@@ -88,9 +88,12 @@ public class Main {
                         System.out.println(sparatAntal);
 
                         System.out.println("check");
-                        tarning.tarningarArray(sparatAntal, sparadSida);
+                       // tarning.tarningarArray(sparatAntal, sparadSida);
+                        tarning.tarningarArray2(sparatAntal, sparadSida, sparaAntalSpelare);
 
-                        for (int i = 0; i < antalRundor; i++) {
+                        //System.out.println(Arrays.deepToString(tarning.tarnin);
+
+                       // for (int i = 0; i < antalRundor; i++) {
 
 
                             //kasta x antal rundor och lagra dem...
@@ -122,7 +125,6 @@ public class Main {
 
 
                              */
-                        }
 
                         //välja antalet tärningar
                         //rulla här med? ta med if ()
