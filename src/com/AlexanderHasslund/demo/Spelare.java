@@ -5,14 +5,16 @@ public class Spelare {
     String namn;
     int alder;
     int totalSumma;
+    int uniktSpelarId;
     //String[] namnArr;
     //int[] alderArr;
     //int spelareId;
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
-    public Spelare(String namn, int alder) { //<-- tog bort int totalSumma...
+    public Spelare(String namn, int alder, int uniktSpelarId) { //<-- tog bort int totalSumma...
         this.namn = namn;
         this.alder = alder;
+        this.uniktSpelarId = uniktSpelarId;
         //känns som att den här kommer att förstöra för mig senare
         int totalSumma = 0;
         //försök att få in uniktId här med
@@ -21,13 +23,15 @@ public class Spelare {
 
     }
 
+
     //används för att overrida så att objekten i arraylist printas...
    public String toString() {
         return (
                 "Namn: " + this.namn.toUpperCase() + " || " +
+                "Unikt spelarId: " + this.uniktSpelarId + " || " +
                 "Ålder: "+ this.alder + " || " +
                 "Summa tärningar: " + this.totalSumma
-                 + "\n"
+                 //+ "\n"
                 );
         //bästa stället att lagra allt om spelaren här?
     }

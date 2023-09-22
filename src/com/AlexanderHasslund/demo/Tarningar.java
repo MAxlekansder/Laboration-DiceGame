@@ -34,9 +34,9 @@ public class Tarningar {
 
         //for (int i = 0; i < myTest.length; i++) {
           //  for (int j = 0 ; j <myTest[i].length; j++) {
-        System.out.println(tarningRandSida);
+        //System.out.println(tarningRandSida);
 
-        System.out.println(Arrays.toString(antalTarningArray));
+        //System.out.println(Arrays.toString(antalTarningArray));
         /*
         try {
             //antalTarningArray = new int[Input.intInput()];

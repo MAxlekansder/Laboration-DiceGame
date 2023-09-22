@@ -7,3 +7,4 @@ public class Scoreboard {
     //IF-a om vi att användaren ska sortera eller inte...
 
 }
+
