@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 //behöver ses över - hur den bäst körs
 public class Tarningar {
@@ -22,25 +23,40 @@ public class Tarningar {
     }
 
     public void tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
-        //lite för klurlig lösning just nu
-        //Spelare spelare = new Spelare();
-        //int tarningSpelare = spelare.spelareAntal();
+
         Random tarningRand = new Random();
-        //den kör om frågan igen...
+
+        int totalSumma = 0;
+
         int tarningRandSida = 0;
         int[][] antalTarningArray2 = new int[antalSpelare][antalTarningar];
         //System.out.print("Hur många tärningar per spelare?: ");
         for (int i = 0; i < antalTarningArray2.length; i++) {
             for (int j = 0; j < antalTarningar; j++) {
                 antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
+                //totalSumma = totalSumma + antalTarningArray2[i][j];
             }
+            System.out.println("Loop");
+            System.out.println(totalSumma);
+            System.out.println(Arrays.deepToString(antalTarningArray2));
 
+            System.out.println(" ----> " + Arrays.toString(antalTarningArray2[i]) + IntStream.of(antalTarningArray2[i]).sum());
             //här kanske är ett bra tillfälle att få in spelare?
+
+
             //och även kunna göra summeringen per array för att sen tilldela det till totalSumma...!!!
-
-
         }
+        //vi kan nog flytta in den här i stora for-loopen
+        for (int i = 0; i < antalSpelare; i++) {
+            for (int j = 0; j < antalTarningar; j++) {
+                totalSumma = totalSumma + antalTarningArray2[i][j];
 
+                Spelare nySpelare = new Spelare(totalSumma);
+
+            }
+            System.out.println(totalSumma);
+            //totalSumma = 0;
+        }
     }
 
     public void tarningarArray(int antalTarningar, int antalSidor) {
@@ -56,7 +72,7 @@ public class Tarningar {
         }
 
         //for (int i = 0; i < myTest.length; i++) {
-          //  for (int j = 0 ; j <myTest[i].length; j++) {
+        //  for (int j = 0 ; j <myTest[i].length; j++) {
         //System.out.println(tarningRandSida);
 
         //System.out.println(Arrays.toString(antalTarningArray));

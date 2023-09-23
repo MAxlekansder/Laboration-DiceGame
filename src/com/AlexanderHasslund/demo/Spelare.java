@@ -1,27 +1,29 @@
 package com.AlexanderHasslund.demo;
 
+import java.util.ArrayList;
+
 public class Spelare {
 
     String namn;
     int alder;
     int totalSumma;
     int uniktSpelarId;
-    //String[] namnArr;
-    //int[] alderArr;
-    //int spelareId;
+
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
-    public Spelare(String namn, int alder, int uniktSpelarId) { //<-- tog bort int totalSumma...
+    public Spelare(String namn, int alder, int uniktSpelarId, int totalSumma) { //<-- tog bort int totalSumma...
         this.namn = namn;
         this.alder = alder;
         this.uniktSpelarId = uniktSpelarId;
+        this.totalSumma = totalSumma;
         //känns som att den här kommer att förstöra för mig senare
-        int totalSumma = 0;
+        //int totalSumma = 0;
         //försök att få in uniktId här med
         //int UniktId =
         //this.totalSumma = totalSumma
 
     }
+
 
 
     //används för att overrida så att objekten i arraylist printas...
@@ -44,6 +46,7 @@ public class Spelare {
 
     public void spelareArr() {
 
+        //ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
 
     }
 
@@ -60,14 +63,11 @@ public class Spelare {
     }
 
     //bör hålla det här för att sen kunna dela upp det
+
     public void arrayList() {
-
-
+        ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
     }
-    /*
-    //placeholder
 
-       // this.spelareId = spelareId;
         //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
 
         //bygg en for-loop här som lägger till unika ID per spelare för att sen kunna söka

@@ -11,6 +11,8 @@ import java.util.MissingFormatWidthException;
 public class Main {
     public static void main(String[] args) {
         //instansiera allt här
+        ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
+
         Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
         boolean isPlaying = true;
@@ -46,7 +48,7 @@ public class Main {
                         //System.out.println(nySpelare.toString());
                         System.out.println("Ange namn och ålder för vardera spelare: ");
                         //det här stycket skapar spelare baserat på antalet som spelar --> skriver till klass Spelare
-                        ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
+
                         for (int i = 0; i < sparaAntalSpelare; i++) {
 
                             System.out.print("Namn Spelare " + (i + 1) + ": ");
@@ -57,8 +59,9 @@ public class Main {
 
                             //nu lägger jag till totalSumma för att se hur den agerar...
                             //Spelare nySpelare = new Spelare(Input.stringInput(), Input.intInput());
-                            nySpelare = new Spelare(namn, alder, uniktSpelarId);
+                            nySpelare = new Spelare(namn, alder, uniktSpelarId, 0);
                             nySpelareArr.add(nySpelare);
+
                         }
 
                             //för att slippa att vi loopar rubriken
@@ -144,6 +147,16 @@ public class Main {
                         /* FIXME KÖR TVÅ GAME MODES!! SÄTT IN EN UTSLAGSTÄVLING! DÄR VI KÖR ARRAYLIST.POP
                         *   Kunna hela tiden veta vem som leder?
                         *   ta med runder så det går att sumera något */
+                        System.out.println(String.format("\n%-20s", "\033[1;33m --- SCOREBOARD ---"));
+
+                        //fungerar bra men formeringen kanske ska flyttas? Ser fluffigt ut
+                        for (int i = 0; i < nySpelareArr.size(); i ++) {
+                            int uniktSpelarId = i + 1;
+
+                            //desto mer jag fyller ut, desto mer känner jag att det behövs flyttas ut till: interaktionsStruktur
+                            System.out.print("\033[1;33mSPELARE " + uniktSpelarId + "\u001B[0m ");
+                            System.out.println(nySpelareArr.get(i).toString());
+                        }
 
                         break;
                     case 5:
