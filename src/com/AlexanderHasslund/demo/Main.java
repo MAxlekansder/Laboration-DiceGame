@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println("Hur många rundor? ");
         int antalRundor = Input.intInput();
-        Spelare nySpelare = new Spelare("",0,0);
+        Spelare nySpelare = new Spelare("",0,0,0);
 
         /* TODO PLACEHOLDER FÖR SPELARE*/
 
@@ -94,6 +94,8 @@ public class Main {
                        // tarning.tarningarArray(sparatAntal, sparadSida);
                         tarning.tarningarArray2(sparatAntal, sparadSida, sparaAntalSpelare);
 
+
+
                         //System.out.println(Arrays.deepToString(tarning.tarnin);
 
                        // for (int i = 0; i < antalRundor; i++) {
@@ -147,7 +149,7 @@ public class Main {
                         /* FIXME KÖR TVÅ GAME MODES!! SÄTT IN EN UTSLAGSTÄVLING! DÄR VI KÖR ARRAYLIST.POP
                         *   Kunna hela tiden veta vem som leder?
                         *   ta med runder så det går att sumera något */
-                        System.out.println(String.format("\n%-20s", "\033[1;33m --- SCOREBOARD ---"));
+                        System.out.println(String.format("\n%-20s", "\033[1;33m --- SCOREBOARD --- \u001B[0m "));
 
                         //fungerar bra men formeringen kanske ska flyttas? Ser fluffigt ut
                         for (int i = 0; i < nySpelareArr.size(); i ++) {
@@ -174,8 +176,13 @@ public class Main {
         //do while körs så länge vi inte stänger ner det -> breakar case x:
         } while (isPlaying);
 
-
-
     }
+
+    public int totalSumma(int totalSumma) {
+        
+
+    return totalSumma;
+    }
+
 }
 

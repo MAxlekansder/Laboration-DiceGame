@@ -22,7 +22,7 @@ public class Tarningar {
         return antalSidor;
     }
 
-    public void tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
+    public int tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
 
         Random tarningRand = new Random();
 
@@ -51,45 +51,20 @@ public class Tarningar {
             for (int j = 0; j < antalTarningar; j++) {
                 totalSumma = totalSumma + antalTarningArray2[i][j];
 
-                Spelare nySpelare = new Spelare(totalSumma);
+
 
             }
             System.out.println(totalSumma);
             //totalSumma = 0;
         }
+        return totalSumma;
     }
 
-    public void tarningarArray(int antalTarningar, int antalSidor) {
-
-        //lite för klurlig lösning just nu
-        Random tarningRand = new Random();
-        //den kör om frågan igen...
-        int tarningRandSida = 0;
-        int[] antalTarningArray = new int[antalTarningar];
-        //System.out.print("Hur många tärningar per spelare?: ");
-        for (int i = 0; i < antalTarningArray.length; i++) {
-            antalTarningArray[i] = tarningRand.nextInt(antalSidor) + 1;
-        }
-
-        //for (int i = 0; i < myTest.length; i++) {
-        //  for (int j = 0 ; j <myTest[i].length; j++) {
-        //System.out.println(tarningRandSida);
-
-        //System.out.println(Arrays.toString(antalTarningArray));
-        /*
-        try {
-            //antalTarningArray = new int[Input.intInput()];
-            System.out.println(Arrays.toString(antalTarningArray) + " " + antalTarningArray.length);
 
 
-        } catch (java.util.InputMismatchException e) {
-            System.out.println("Du behöver skriver in ett heltal för antalet tärningar! <-- i metod tarning rad 28");
-        }
 
-
-         */
         //return antalTarningArray;
-    }
+
 
     //stoppa in ett värde från input direkt, istället för att återuppa det hela tiden?
     //kommer basera maxtaket med random beroende på sidorna

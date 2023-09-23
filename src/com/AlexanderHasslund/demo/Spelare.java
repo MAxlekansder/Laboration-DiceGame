@@ -12,6 +12,7 @@ public class Spelare {
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
     public Spelare(String namn, int alder, int uniktSpelarId, int totalSumma) { //<-- tog bort int totalSumma...
+        Tarningar tarning = new Tarningar();
         this.namn = namn;
         this.alder = alder;
         this.uniktSpelarId = uniktSpelarId;
