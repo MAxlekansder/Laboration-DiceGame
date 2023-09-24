@@ -1,7 +1,9 @@
 package com.AlexanderHasslund.demo;
+
 import com.AlexanderHasslund.demo.interaktionsStruktur.Menu;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.MissingFormatWidthException;
@@ -20,8 +22,10 @@ public class Main {
 
         StartUpGame.startUpGame();
 
-        System.out.println("Hur många spelare? ");
-        int sparaAntalSpelare = Input.intInput();
+        try {
+            System.out.println("Hur många spelare? ");
+            int sparaAntalSpelare = Input.intInput();
+        } catch (java.util.MissingFormatWidthException e) { }
 
         System.out.println("Hur många rundor? ");
         int antalRundor = Input.intInput();
@@ -80,8 +84,6 @@ public class Main {
                         System.out.println("Hur många tärningar ska kastas per spelare?");
                         int sparatAntal = tarning.antalTarningar();
                         System.out.println(sparatAntal);
-
-                        System.out.println("check");
                         // tarning.tarningarArray(sparatAntal, sparadSida);
                         tarning.tarningarArray2(sparatAntal, sparadSida, sparaAntalSpelare);
 
@@ -94,7 +96,7 @@ public class Main {
                         break;
                     case 4:
 
-                      scoreboard.scoreboard();
+                        scoreboard.scoreboard();
 
                         //nySpelareArr.remove(1);
 
@@ -115,9 +117,5 @@ public class Main {
 
     }
 
-    public int totalSumma(int totalSumma) {
-
-        return totalSumma;
-    }
 }
 

@@ -1,8 +1,8 @@
 package com.AlexanderHasslund.demo;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
-
 
 
 //behöver ses över - hur den bäst körs
@@ -20,12 +20,6 @@ public class Tarningar {
         return antalSidor;
     }
 
-    public int totalSummaMetod(int antalTarningar, int antalSidor, int totalSumma) {
-        Tarningar tarning = new Tarningar();
-
-
-        return totalSumma;
-    }
 
     public int tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
 
@@ -47,7 +41,6 @@ public class Tarningar {
             System.out.println(Main.nySpelareArr.get(i).namn + " ----> " + Arrays.toString(antalTarningArray2[i]) + IntStream.of(antalTarningArray2[i]).sum());
 
 
-
             //här kanske är ett bra tillfälle att få in spelare?
             //och även kunna göra summeringen per array för att sen tilldela det till totalSumma...!!!
         }
@@ -65,11 +58,9 @@ public class Tarningar {
         return totalSumma;
     }
 
-    public void kastaTarning() {
 
-        //mata in random här istället?
-    }
 }
+
 
 
 

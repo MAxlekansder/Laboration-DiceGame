@@ -3,8 +3,6 @@ package com.AlexanderHasslund.demo.interaktionsStruktur;
 import com.AlexanderHasslund.demo.Main;
 import com.AlexanderHasslund.demo.Spelare;
 
-import java.util.Collection;
-import java.util.Collections;
 
 public class Scoreboard {
     public void scoreboard() {
@@ -20,9 +18,9 @@ public class Scoreboard {
             System.out.println(Main.nySpelareArr.get(i).toString());
 
 
-            if (Main.nySpelareArr.get(i).totalSumma == Main.nySpelareArr.get(i + 1).totalSumma) {
+           // if (Main.nySpelareArr.get(i).totalSumma == Main.nySpelareArr.get(i + 1).totalSumma) {
 
-            }
+
         }
 
 
