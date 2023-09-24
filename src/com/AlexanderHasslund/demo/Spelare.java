@@ -6,7 +6,7 @@ public class Spelare {
 
     String namn;
     int alder;
-    int totalSumma;
+    public int totalSumma;
     int uniktSpelarId;
 
 
@@ -16,13 +16,7 @@ public class Spelare {
         this.namn = namn;
         this.alder = alder;
         this.uniktSpelarId = uniktSpelarId;
-        this.totalSumma = totalSumma;
-        //känns som att den här kommer att förstöra för mig senare
-        //int totalSumma = 0;
-        //försök att få in uniktId här med
-        //int UniktId =
-        //this.totalSumma = totalSumma
-
+        //this.totalSumma = totalSumma;
     }
 
 
@@ -39,23 +33,16 @@ public class Spelare {
         //bästa stället att lagra allt om spelaren här?
     }
     //här kan vi sätta ut direkta summan och summera ihop alla kast per spelare!
-
+    /*
     public int sumTotalPoang(int totalSumma) {
+        Tarningar tarning = new Tarningar();
         //stoppa in summan av arrayen / tärningarna här -> därför finns det en parameter
-        return this.totalSumma = totalSumma;
+        return this.totalSumma = tarning.tarningarArray2(0,0,totalSumma);
     }
-
+    */
     public void spelareArr() {
-
         //ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
-
     }
-
-    /*TODO ÅTERKALLA EN METOD FÖR ATT SPARA SPELAREN I ARRAY?
-    public SpelareArr(String[] namnArr, int[] alderArr) {
-        this.namnArr = namnArr;
-        this.alderArr = alderArr;
-    }*/
 
     //se över om det ska läggas till som en parameter
     public int spelareAntal() {
@@ -69,17 +56,5 @@ public class Spelare {
         ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
     }
 
-        //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
-
-        //bygg en for-loop här som lägger till unika ID per spelare för att sen kunna söka
-        /*
-        for (int i = 0; i < Spelare.length; i++) {
-            this.spelareId = spelareId[i +1]
-        {
-
-        for (int i = 0; i < Spelare.spelare().length; i++) {
-            this.spelarId = Spelare.spelare()[i +1] ;
-         */
 
 }
-

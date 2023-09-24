@@ -24,3 +24,91 @@ hantera att rätt svar kommer in under inmatningen
     nummer får endast vara int
 
 
+
+  //System.out.println(Arrays.deepToString(tarning.tarnin);
+
+                       // for (int i = 0; i < antalRundor; i++) {
+
+
+                            //kasta x antal rundor och lagra dem...
+                            //add funktion per array
+                            //bundet till spelaren?
+                            //hur lagrar jag det?
+
+                            /* 3 personer kastar 2-sidig tärning 3 gånger m
+                                ((rand tak 2) * 3) * 3
+                                array?
+                                SPELARE 1: [1,2,1] = skriv till sum 4
+                                SPELARE 2: [2,1,2] = skriv till sum 5
+
+                                efter det sortera - nu leder spelare2
+                                SCOREBOARD
+                                SPELARE 2: NAMNx total summa: 5
+                                SPELREA 1: NAMNy total summa: 4
+
+                              3 personer kastar 2-sidig tärning 3 gånger med 2 tärningar
+                                (((rand tak 2) * 3) * 3) * 2
+                                array?
+                                SPELARE 1: [1,2,1] [2,2,2] = skriv till sum 10
+                                SPELARE 2: [2,1,2] [1,2,1] = skriv till sum 9
+
+                                efter det sortera - nu leder spelare2
+                                SCOREBOARD
+                                SPELARE 1: NAMNx total summa: 10
+                                SPELREA 12: NAMNy total summa: 9
+
+
+                             */
+
+                        //välja antalet tärningar
+                        //rulla här med? ta med if ()
+
+//återkalla scoreboard, vem leder? Ta med sort och räkna ihop
+//kan vi skapa en scoreboard?
+//sortera också - inkludera här -> fixa en bineary search
+//FIXME efter en runda presentera resultatet!!! och sortera vem som leder!!
+
+/* FIXME KÖR TVÅ GAME MODES!! SÄTT IN EN UTSLAGSTÄVLING! DÄR VI KÖR ARRAYLIST.POP
+*   Kunna hela tiden veta vem som leder?
+*   ta med runder så det går att sumera något */
+
+      //return antalTarningArray;
+
+
+    //stoppa in ett värde från input direkt, istället för att återuppa det hela tiden?
+    //kommer basera maxtaket med random beroende på sidorna
+
+
+    // släng in hur många sidor tärningarna ska ha?
+
+    //lista ut hur jag ska lägga till värdet och hur jag slår ut det i arrayen...
+    //tror jag har en plan här <-- kika lite merpå den
+
+    /*
+      if (antalTarningArray2[i][antalTarningar] == 0) {
+                System.out.println("första klar!");
+                System.out.println(Arrays.deepToString(antalTarningArray2));
+            } else {
+                System.out.println("Nästa på tur!");
+                System.out.println(Arrays.deepToString(antalTarningArray2));
+            }
+     */
+
+
+        /*TODO ÅTERKALLA EN METOD FÖR ATT SPARA SPELAREN I ARRAY?
+         public SpelareArr(String[] namnArr, int[] alderArr) {
+             this.namnArr = namnArr;
+             this.alderArr = alderArr;
+         }*/
+
+  //arrayList(); <-- efter att vi har delat allt, se till att försöka spara allt i en array?
+
+        //bygg en for-loop här som lägger till unika ID per spelare för att sen kunna söka
+        /*
+        for (int i = 0; i < Spelare.length; i++) {
+            this.spelareId = spelareId[i +1]
+        {
+
+        for (int i = 0; i < Spelare.spelare().length; i++) {
+            this.spelarId = Spelare.spelare()[i +1] ;
+         */
