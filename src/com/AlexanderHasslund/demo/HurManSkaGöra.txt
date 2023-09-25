@@ -4,6 +4,9 @@ antalet spelare
 antal tärningar
 spelarens namn
 
+FIXME Se till att man inte kan gå vidare om man skriver in felaktiga värden i stringinput och intinput
+
+
 
 TODO REGLER
 Varje spelare får en eller flera tärningar att kasta per tur

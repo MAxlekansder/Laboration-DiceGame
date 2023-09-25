@@ -1,4 +1,5 @@
 package com.AlexanderHasslund.demo;
+
 import java.util.IllegalFormatException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -10,14 +11,17 @@ public class Input {
         String stringInput = null;
 
         //just nu är den här try catchen helt värdelös
-        try {
-            Scanner stringScan = new Scanner(System.in);
-            stringInput = stringScan.nextLine();
+        // ta bort do här...
+            //FIXME fixa så att det här inte strular...
+            try {
+                Scanner stringScan = new Scanner(System.in);
+                stringInput = stringScan.nextLine();
 
-        } catch (InputMismatchException e) {
-            System.out.println("Du behöver skriva in ett strängvärde för att komma vidare");
-        }
+            } catch (InputMismatchException e) {
+                System.out.println("Du behöver skriva in ett strängvärde för att komma vidare");
+            }
         return stringInput;
+
     }
 
     public static int intInput() {

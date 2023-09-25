@@ -1,14 +1,16 @@
 package com.AlexanderHasslund.demo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Spelare {
 
+    public static ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
     String namn;
     int alder;
     public int totalSumma;
-    int uniktSpelarId;
-
+    public int uniktSpelarId;
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
     public Spelare(String namn, int alder, int uniktSpelarId, int totalSumma) { //<-- tog bort int totalSumma...
@@ -51,10 +53,6 @@ public class Spelare {
     }
 
     //bör hålla det här för att sen kunna dela upp det
-
-    public void arrayList() {
-        ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
-    }
 
 
 }

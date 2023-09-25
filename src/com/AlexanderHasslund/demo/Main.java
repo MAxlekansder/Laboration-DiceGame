@@ -4,14 +4,12 @@ import com.AlexanderHasslund.demo.interaktionsStruktur.Menu;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.MissingFormatWidthException;
+import java.util.*;
 
 
 public class Main {
 
-    public static ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
+
 
     public static void main(String[] args) {
         //instansiera allt här
@@ -19,13 +17,13 @@ public class Main {
         Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
         boolean isPlaying = true;
+        int sparaAntalSpelare = 0;
 
         StartUpGame.startUpGame();
+        System.out.println("Hur många spelare? ");
+        sparaAntalSpelare = Input.intInput();
 
-        try {
-            System.out.println("Hur många spelare? ");
-            int sparaAntalSpelare = Input.intInput();
-        } catch (java.util.MissingFormatWidthException e) { }
+
 
         System.out.println("Hur många rundor? ");
         int antalRundor = Input.intInput();
@@ -56,7 +54,7 @@ public class Main {
                             int uniktSpelarId = i + 1;
 
                             nySpelare = new Spelare(namn, alder, uniktSpelarId, 0);
-                            nySpelareArr.add(nySpelare);
+                            Spelare.nySpelareArr.add(nySpelare);
 
                         }
 
@@ -64,12 +62,12 @@ public class Main {
                         System.out.println(String.format("\n%-20s", "\033[1;33m --- SPELARE ---"));
 
                         //fungerar bra men formeringen kanske ska flyttas? Ser fluffigt ut
-                        for (int i = 0; i < nySpelareArr.size(); i++) {
+                        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
                             int uniktSpelarId = i + 1;
 
                             //desto mer jag fyller ut, desto mer känner jag att det behövs flyttas ut till: interaktionsStruktur
                             System.out.print("\033[1;33mSPELARE " + uniktSpelarId + "\u001B[0m ");
-                            System.out.println(nySpelareArr.get(i).toString());
+                            System.out.println(Spelare.nySpelareArr.get(i).toString());
                         }
 
                         break;
@@ -79,18 +77,20 @@ public class Main {
                         //free mode?
                         System.out.println("Hur många sidor ska tärningen ha?");
                         int sparadSida = tarning.sidorTarningar();
-                        System.out.println(sparadSida);
 
                         System.out.println("Hur många tärningar ska kastas per spelare?");
                         int sparatAntal = tarning.antalTarningar();
-                        System.out.println(sparatAntal);
                         // tarning.tarningarArray(sparatAntal, sparadSida);
                         tarning.tarningarArray2(sparatAntal, sparadSida, sparaAntalSpelare);
+
+                        scoreboard.sortSpelarLista();
+                        //scoreboard.scoreboard();
 
 
                         break;
                     case 3:
-
+                        System.out.println("sortera");
+                        scoreboard.sortSpelarLista();
                         //rulla här eller i case 2?
                         //kombinera spelare och tärningar
                         break;
