@@ -6,4 +6,6 @@ import java.util.Arrays;
 import java.util.MissingFormatWidthException;
 
 public class HanteraVinnare {
+
+
 }

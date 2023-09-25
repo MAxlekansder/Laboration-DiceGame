@@ -10,19 +10,20 @@ import java.util.*;
 public class Main {
 
 
-
     public static void main(String[] args) {
         //instansiera allt här
         Scoreboard scoreboard = new Scoreboard();
         Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
         boolean isPlaying = true;
+        boolean spelareReggad = false;
         int sparaAntalSpelare = 0;
+        int turer = 0;
+
 
         StartUpGame.startUpGame();
         System.out.println("Hur många spelare? ");
         sparaAntalSpelare = Input.intInput();
-
 
 
         System.out.println("Hur många rundor? ");
@@ -33,6 +34,8 @@ public class Main {
 
 
         do {
+
+
             try {
                 //kallar på menyvalen i klass Menu
                 myMenu.menu();
@@ -70,6 +73,7 @@ public class Main {
                             System.out.println(Spelare.nySpelareArr.get(i).toString());
                         }
 
+                        spelareReggad = true;
                         break;
 
                     case 2:
@@ -86,6 +90,43 @@ public class Main {
                         scoreboard.sortSpelarLista();
                         //scoreboard.scoreboard();
 
+                        boolean isPlayerOneTrue = false;            //bygg in en safe boolean check på spelaren
+                        turer++;
+
+                        if (turer == antalRundor && Spelare.nySpelareArr.size() > 1) {
+                            //flytta ut till Hantera vinnare?
+                            for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+                                if (Spelare.nySpelareArr.get(0).totalSumma != Spelare.nySpelareArr.get(i).totalSumma) {
+                                    isPlayerOneTrue = true;
+                                    break; // break för att inte kolla alla svar... men tänker att det kanske inte behövs?
+                                }
+                            }
+                            if (isPlayerOneTrue) {
+                                scoreboard.scoreboard();
+                                System.out.println("\n \u001B[1;32m -----VINNAREN ÄR---- \u001B[0m ");
+                                System.out.println("\033[1;33m SPELARE: \u001B[0m " + Spelare.nySpelareArr.get(0).namn + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!");
+                            } else {
+                            System.out.println("Vi har flera vinnare!");
+                            }
+
+                            //fyll ut här med att ta genom det sista innan spelet slutas!
+                            //presentera en vinnare här med så att vi vet att någon vann!
+
+                            //få in en jämförelse mellan vinnaren och de undre! Så om 3st rullar 1 1 1, då har ju alla vunnit, eller ingen vunnit!
+                            /*
+                            scoreboard.scoreboard();
+
+                            System.out.println("\n \u001B[33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE: \u001B[0m " + Spelare.nySpelareArr.get(0).namn
+                                    + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!");
+                                    */
+
+                            isPlaying = false;
+                        } else {
+                            System.out.println("Du rullade bra!");
+                            System.out.println("Tack för att du spelade!");
+                            isPlaying = false;
+                        }
+                        //scoreboard.scoreboard();
 
                         break;
                     case 3:
@@ -108,13 +149,12 @@ public class Main {
                     default:
                         System.out.println("Håll dig inom angivna valen");
                 }
-
             } catch (MissingFormatWidthException e) {
                 System.out.println("Använd dig av heltal för att navigera menyn!");
             }
-            //do while körs så länge vi inte stänger ner det -> breakar case x:
-        } while (isPlaying);
 
+        }
+        while (isPlaying);
     }
 
 }

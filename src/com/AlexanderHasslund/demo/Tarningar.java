@@ -23,7 +23,7 @@ public class Tarningar {
 
     public void tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
         Random tarningRand = new Random();
-        int sum1 = 0;
+        int sum1 = 0; //överflödig
 
 
         int[][] antalTarningArray2 = new int[antalSpelare][antalTarningar];
@@ -32,10 +32,9 @@ public class Tarningar {
             for (int j = 0; j < antalTarningar; j++) {
                 antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
                 //totalSumma = totalSumma + antalTarningArray2[i][j];
+                //överflödig?
                 sum1 = sum1 + antalTarningArray2[i][j];
-
             }
-            System.out.println("Loop");
             //System.out.println(totalSumma);
             //System.out.println(Arrays.deepToString(antalTarningArray2));
             System.out.println(Spelare.nySpelareArr.get(i).namn + " ----> " + Arrays.toString(antalTarningArray2[i]) + IntStream.of(antalTarningArray2[i]).sum());
