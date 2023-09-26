@@ -11,6 +11,7 @@ public class Spelare {
     int alder;
     public int totalSumma;
     public int uniktSpelarId;
+    public boolean isPlayerRemoveTrue;
 
     //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
     public Spelare(String namn, int alder, int uniktSpelarId, int totalSumma) { //<-- tog bort int totalSumma...
@@ -18,6 +19,7 @@ public class Spelare {
         this.namn = namn;
         this.alder = alder;
         this.uniktSpelarId = uniktSpelarId;
+        this.isPlayerRemoveTrue = false;
         //this.totalSumma = totalSumma;
     }
 
@@ -29,7 +31,8 @@ public class Spelare {
                 "Namn: " + this.namn.toUpperCase() + " || " +
                 "Unikt spelarId: " + this.uniktSpelarId + " || " +
                 "Ålder: "+ this.alder + " || " +
-                "Summa tärningar: " + this.totalSumma
+                "Summa tärningar: " + this.totalSumma + " || " +
+                "Sant: " + this.isPlayerRemoveTrue //<-- ta bort den härifrån sen, baraför backendsyfte...
                  //+ "\n"
                 );
         //bästa stället att lagra allt om spelaren här?
