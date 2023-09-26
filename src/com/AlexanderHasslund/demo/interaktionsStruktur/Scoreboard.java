@@ -22,15 +22,7 @@ public class Scoreboard{
         Collections.sort(Spelare.nySpelareArr, new Comparator<Spelare>() {
             @Override
             public int compare(Spelare o1, Spelare o2) {
-                /*
-                //hanterar isPlayerRemovedTruehär inne för att göra allt direkt i jämförelsen. Vi byter redan här
-                if (o2.totalSumma == o1.totalSumma) {
-                    for (int i = 0; i < Spelare.nySpelareArr.size();i++) {
-                        Spelare.nySpelareArr.get(i).isPlayerRemoveTrue = true;
-                        //verkar inte funka...
 
-                    }
-                }*/
                 return Integer.compare(o2.totalSumma, o1.totalSumma);
             }
         });
