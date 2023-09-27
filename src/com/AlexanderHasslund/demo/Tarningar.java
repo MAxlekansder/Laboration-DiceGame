@@ -7,16 +7,20 @@ import java.util.stream.IntStream;
 
 //behöver ses över - hur den bäst körs
 public class Tarningar {
-
+    public static int antalTarningarClass;
+    public static int antalSidorClass;
     //se över om det ska läggas in som en parameter
     public int antalTarningar() {
         int antalTarningar = Input.intInput();
+        this.antalTarningarClass = antalTarningar;
         return antalTarningar;
     }
 
     //se över om det ska läggas in som en parameter
     public int sidorTarningar() {
         int antalSidor = Input.intInput();
+
+    this.antalSidorClass = antalSidor;
         return antalSidor;
     }
 

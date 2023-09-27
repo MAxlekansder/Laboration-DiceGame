@@ -13,7 +13,8 @@ public class Main {
     public static void main(String[] args) {
         //instansiera allt här
         Scoreboard scoreboard = new Scoreboard();
-        Menu myMenu = new Menu();
+        StartUpGame startUpGame = new StartUpGame();
+        //Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
         boolean isPlaying = true;
         boolean spelareReggad = false;
@@ -21,7 +22,7 @@ public class Main {
         int turer = 0;
 
 
-        StartUpGame.startUpGame();
+        startUpGame.startUpGame();
         System.out.println("Hur många spelare? ");
         sparaAntalSpelare = Input.intInput();
 
@@ -36,7 +37,7 @@ public class Main {
         do {
             try {
                 //kallar på menyvalen i klass Menu
-                myMenu.menu();
+                startUpGame.menu();
                 int användarVal = Input.intInput();
 
                 switch (användarVal) {
@@ -86,7 +87,6 @@ public class Main {
                             scoreboard.sortSpelarLista();
                             //scoreboard.scoreboard();
 
-                            boolean isPlayerOneTrue = false;            //bygg in en safe boolean check på spelaren
 
                             turer++;
                             if (turer == antalRundor && Spelare.nySpelareArr.size() > 1) {
@@ -110,6 +110,7 @@ public class Main {
                         }
 
                     case 3:
+                        //Släng in blazer här
                         System.out.println("sortera");
                         scoreboard.sortSpelarLista();
                         //rulla här eller i case 2?
@@ -131,6 +132,8 @@ public class Main {
                 }
             } catch (MissingFormatWidthException e) {
                 System.out.println("Använd dig av heltal för att navigera menyn!");
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
         while (isPlaying);
