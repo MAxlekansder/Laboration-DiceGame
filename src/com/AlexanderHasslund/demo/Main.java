@@ -73,15 +73,13 @@ public class Main {
                         if (spelareReggad && sparaAntalSpelare >= 1) {
                             //sätt in ett sätt som stoppar folk från att spela fler gånger om det inte var med till en början?
                             //free mode?
-                            tarning.sidorTarningar();
-                            tarning.antalTarningar();
-
-
                             System.out.println("Hur många sidor ska tärningen ha?");
-                            int sparadSida = tarning.returnSidorTarningar();
+                            int sparadSida = Input.intInput(); //tarning.setSidorTarningar();
+                            tarning.setSidorTarningar(sparadSida);
 
                             System.out.println("Hur många tärningar ska kastas per spelare?");
-                            int sparatAntal = tarning.returnAntalTarningar();
+                            int sparatAntal = Input.intInput();//tarning.setAntalTarningar();
+                            tarning.setAntalTarningar(sparatAntal);
                             // tarning.tarningarArray(sparatAntal, sparadSida);
                             tarning.tarningarArray2(sparatAntal, sparadSida, sparaAntalSpelare);
 

@@ -77,7 +77,7 @@ public class HanteraVinnare {
                            Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
                        }
                        scoreboard.scoreboard();
-                       tarningar.tarningarArray2(tarningar.returnAntalTarningar(), tarningar.returnSidorTarningar(), Spelare.nySpelareArr.size());
+                       tarningar.tarningarArray2(tarningar.antalTarningar, tarningar.antalSidor, Spelare.nySpelareArr.size());
                        hanteraVinnare();
                    } else { testLoop = false;
 

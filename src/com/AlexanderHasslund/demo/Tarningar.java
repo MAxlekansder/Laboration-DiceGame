@@ -13,27 +13,23 @@ public class Tarningar {
     public int antalSidor;
     //se över om det ska läggas in som en parameter
     //setter
-    public void antalTarningar() {
-        System.out.println("Hur många tärningar ska kastas per spelare?");
-        int antalTarningar = Input.intInput();
+    public void setAntalTarningar(int antalTarningar) {
         this.antalTarningar = antalTarningar;
         //return antalTarningar;
     }
 
     //getter
-    public int returnAntalTarningar() {
+    public int getAntalTarningar() {
         return antalTarningar;
     }
     //se över om det ska läggas in som en parameter
     //setter
-    public void sidorTarningar() {
-        System.out.println("Hur många sidor ska tärningen ha?");
-        int antalSidor = Input.intInput();
+    public void setSidorTarningar(int antalSidor) {
         this.antalSidor = antalSidor;
         //return antalSidor;
     }
     //getter
-    public int returnSidorTarningar() {
+    public int getSidorTarningar() {
         return antalSidor;
     }
 
