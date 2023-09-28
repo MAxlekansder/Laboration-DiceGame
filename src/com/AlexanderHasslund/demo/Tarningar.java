@@ -19,8 +19,7 @@ public class Tarningar {
     //se över om det ska läggas in som en parameter
     public int sidorTarningar() {
         int antalSidor = Input.intInput();
-
-    this.antalSidorClass = antalSidor;
+        this.antalSidorClass = antalSidor;
         return antalSidor;
     }
 

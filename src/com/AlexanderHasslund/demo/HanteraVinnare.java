@@ -1,6 +1,8 @@
 package com.AlexanderHasslund.demo;
+
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
+import org.w3c.dom.ls.LSOutput;
 
 public class HanteraVinnare {
 
@@ -21,6 +23,7 @@ public class HanteraVinnare {
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             if (antalVinnare > 1) {
                 fleraVinnare = true;
+                break;
             }
         }
 
@@ -28,7 +31,7 @@ public class HanteraVinnare {
             System.out.println("Vi har flera vinnare! ");
             System.out.println("Är alla vinnare [J] eller vill ni rulla igen [N]? J//N");
 
-            fleraVinnare();
+            fleraVinnare2();
 
         } else {
             System.out.println("\n \u001B[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
@@ -36,34 +39,95 @@ public class HanteraVinnare {
         }
     }
 
+
+    public void fleraVinnare2() throws InterruptedException {
+
+        StartUpGame startUpGame = new StartUpGame();
+        Scoreboard scoreboard = new Scoreboard();
+        String fleraVinnareVal = Input.stringInput();
+        boolean testLoop = true;
+        int sizeOfArrayList = Spelare.nySpelareArr.size();
+        //int catchPlayerRemoval = -1;
+
+
+            if (fleraVinnareVal.toLowerCase().equals("j")) {
+                System.out.println("Alla vann!");
+                //gör en alla vann-metod som kallas på här
+            } else if (fleraVinnareVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
+
+                startUpGame.utslagsGame();
+                System.out.println("OK - Då kastar vi igen om: ");
+                scoreboard.sortSpelarLista();
+
+                for (int i = 0; i < sizeOfArrayList; i++) {
+
+                    if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 0) {
+                        Spelare.nySpelareArr.remove(i);
+                        //catchPlayerRemoval++;
+                    }
+                    System.out.println((i + 1) + "...");
+                    Thread.sleep(1000);
+                }
+                scoreboard.scoreboard();
+                whileWinner();
+                //kalla på en metod som håller det här istället -> känns som att koden bara blir bulkig av fortsätta här i?
+
+            } else {
+                System.out.println("Välj rätt input!");
+
+        }
+
+    }
+
+    public void whileWinner() {
+
+    }
+
+
+
+
+
+
     public void fleraVinnare() throws InterruptedException {
         StartUpGame startUpGame = new StartUpGame();
         Tarningar tarningar = new Tarningar();
         Scoreboard scoreboard = new Scoreboard();
         String fleraVinnareVal = Input.stringInput();
+        boolean isStillWinners = true;
         //den slutar bara, behöver loopa om det här så att det körs tills vi är klara...
 
-        
+
         if (fleraVinnareVal.toLowerCase().equals("j")) {
+
             System.out.println("Grattis ni alla vann!");
-            for (int i= 0; i < Spelare.nySpelareArr.size();i++) {
-                if(Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 1 && fleraVinnareVal.toLowerCase().equals("j")) {
-                    System.out.println(Spelare.nySpelareArr.get(i).namn + " med: " +Spelare.nySpelareArr.get(i).totalSumma);
-                } else {}
+            for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+
+                if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 1 && fleraVinnareVal.toLowerCase().equals("j")) {
+
+                    System.out.println(Spelare.nySpelareArr.get(i).namn + " med: " + Spelare.nySpelareArr.get(i).totalSumma);
+                } else {
+                }
 
             }
             System.out.println("Bra spelat!");
         } else {
             System.out.println("OK - Då kastar vi igen om: ");
-            //den tar bort sin egna storlek, för varje element jag tar bort gör jag storleken mindre...
-            for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-                if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 0) {
-                    Spelare.nySpelareArr.remove(i);
+            scoreboard.sortSpelarLista();
+            while (isStillWinners)
+                //den tar bort sin egna storlek, för varje element jag tar bort gör jag storleken mindre...
+                //räkna antalen borttagna?
+                for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+
+                    if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 0) {
+
+                        Spelare.nySpelareArr.remove(i);
+                    }
+                    System.out.println((i + 1) + "...");
+                    Thread.sleep(1000);
                 }
-                System.out.println((i + 1) + "...");
-                Thread.sleep(1000);
-            }
+
             // verkar inte alls fungera här... tror jag får köra en if bool i case2??
+            scoreboard.sortSpelarLista();
             scoreboard.scoreboard();
             startUpGame.utslagsGame();
             tarningar.tarningarArray2(tarningar.antalSidorClass, tarningar.antalTarningarClass, Spelare.nySpelareArr.size());

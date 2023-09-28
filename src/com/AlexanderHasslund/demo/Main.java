@@ -1,6 +1,4 @@
 package com.AlexanderHasslund.demo;
-
-import com.AlexanderHasslund.demo.interaktionsStruktur.Menu;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
 
@@ -14,7 +12,6 @@ public class Main {
         //instansiera allt här
         Scoreboard scoreboard = new Scoreboard();
         StartUpGame startUpGame = new StartUpGame();
-        //Menu myMenu = new Menu();
         Tarningar tarning = new Tarningar();
         boolean isPlaying = true;
         boolean spelareReggad = false;
@@ -100,15 +97,13 @@ public class Main {
                                 System.out.println("Tack för att du spelade!");
                                 isPlaying = false;
                             }
-
                             scoreboard.scoreboard();
-
                             break;
+
                         } else {
                             System.out.println("Registrera alla spelare först, innan ni kastar tärningar!");
                             break;
                         }
-
                     case 3:
                         //Släng in blazer här
                         System.out.println("sortera");
@@ -117,11 +112,7 @@ public class Main {
                         //kombinera spelare och tärningar
                         break;
                     case 4:
-
                         scoreboard.scoreboard();
-
-
-
                         break;
                     case 5:
                         System.out.println("Tack för att du spelade!");
