@@ -25,6 +25,7 @@ public class StartUpGame {
         System.out.println("börjar nu om på noll!");
         System.out.println("------------------------------\n\u001B[0m");
 
+        //flytta ut den här eftersom vi inte kommer återkalla denna varje gång?
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             Spelare.nySpelareArr.get(i).totalSumma = 0;
         }

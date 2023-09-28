@@ -31,6 +31,7 @@ public class Input {
             try {
                 Scanner intScan = new Scanner(System.in);
                 intInput = intScan.nextInt();
+                //intScan.nextLine(); verkar inte funga som tänkt <- ta bort överflödet.
                 intCheck = false;
 
 

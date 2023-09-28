@@ -12,6 +12,7 @@ public class HanteraVinnare {
         boolean fleraVinnare = false;
 
 
+
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             if (Spelare.nySpelareArr.get(0).totalSumma == Spelare.nySpelareArr.get(i).totalSumma) {
                 Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 1;
@@ -39,53 +40,59 @@ public class HanteraVinnare {
         }
     }
 
-
     public void fleraVinnare2() throws InterruptedException {
-
+        Tarningar tarningar = new Tarningar();
         StartUpGame startUpGame = new StartUpGame();
         Scoreboard scoreboard = new Scoreboard();
         String fleraVinnareVal = Input.stringInput();
         boolean testLoop = true;
         int sizeOfArrayList = Spelare.nySpelareArr.size();
-        //int catchPlayerRemoval = -1;
+
+        startUpGame.utslagsGame();
+
+           do {
+               int catchPlayerRemoval = 0;
+               if (fleraVinnareVal.toLowerCase().equals("j")) {
+                   System.out.println("Alla vann!");
+                   //gör en alla vann-metod som kallas på här
+               } else if (fleraVinnareVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
+
+                   System.out.println("OK - Då kastar vi igen om: ");
+                   scoreboard.sortSpelarLista();
+                   //kommer behövas logik för att förhindra att den bara repeterar 1 hela tiden.
+                   //enklast är väl att bygga en struktur för "utslagsrundan"
+                   Spelare.nySpelareArr.removeIf(n ->(n.isPlayerKeepTrue == 0));
+                   scoreboard.sortSpelarLista();
+
+                    //egen metod för läsvänlighetens skull?
+                   for (int i = 0; i < 3; i++) {
+                       System.out.println((i + 1) + "...");
+                       Thread.sleep(1000);
+                   }
 
 
-            if (fleraVinnareVal.toLowerCase().equals("j")) {
-                System.out.println("Alla vann!");
-                //gör en alla vann-metod som kallas på här
-            } else if (fleraVinnareVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
+                   if (Spelare.nySpelareArr.size() > 1) {
+                       testLoop = true;
+                       for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+                           Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+                       }
+                       scoreboard.scoreboard();
+                       tarningar.tarningarArray2(tarningar.returnAntalTarningar(), tarningar.returnSidorTarningar(), Spelare.nySpelareArr.size());
+                       hanteraVinnare();
+                   } else { testLoop = false;
 
-                startUpGame.utslagsGame();
-                System.out.println("OK - Då kastar vi igen om: ");
-                scoreboard.sortSpelarLista();
+                       hanteraVinnare();
+                   }
+                   //kalla på en metod som håller det här istället -> känns som att koden bara blir bulkig av fortsätta här i?
 
-                for (int i = 0; i < sizeOfArrayList; i++) {
-
-                    if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 0) {
-                        Spelare.nySpelareArr.remove(i);
-                        //catchPlayerRemoval++;
-                    }
-                    System.out.println((i + 1) + "...");
-                    Thread.sleep(1000);
-                }
-                scoreboard.scoreboard();
-                whileWinner();
-                //kalla på en metod som håller det här istället -> känns som att koden bara blir bulkig av fortsätta här i?
-
-            } else {
-                System.out.println("Välj rätt input!");
+               } else {
+                   System.out.println("Välj rätt input!");
+               }
+               System.out.println("Test test test kasta här?");
+               //vi behöver kasta tärningar här inne igen
+           } while (testLoop);
 
         }
-
-    }
-
-    public void whileWinner() {
-
-    }
-
-
-
-
 
 
     public void fleraVinnare() throws InterruptedException {
@@ -130,7 +137,7 @@ public class HanteraVinnare {
             scoreboard.sortSpelarLista();
             scoreboard.scoreboard();
             startUpGame.utslagsGame();
-            tarningar.tarningarArray2(tarningar.antalSidorClass, tarningar.antalTarningarClass, Spelare.nySpelareArr.size());
+
         }
     }
 }

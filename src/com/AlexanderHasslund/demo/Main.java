@@ -18,7 +18,7 @@ public class Main {
         int sparaAntalSpelare = 0;
         int turer = 0;
 
-
+        //getters and setters?
         startUpGame.startUpGame();
         System.out.println("Hur många spelare? ");
         sparaAntalSpelare = Input.intInput();
@@ -73,11 +73,15 @@ public class Main {
                         if (spelareReggad && sparaAntalSpelare >= 1) {
                             //sätt in ett sätt som stoppar folk från att spela fler gånger om det inte var med till en början?
                             //free mode?
+                            tarning.sidorTarningar();
+                            tarning.antalTarningar();
+
+
                             System.out.println("Hur många sidor ska tärningen ha?");
-                            int sparadSida = tarning.sidorTarningar();
+                            int sparadSida = tarning.returnSidorTarningar();
 
                             System.out.println("Hur många tärningar ska kastas per spelare?");
-                            int sparatAntal = tarning.antalTarningar();
+                            int sparatAntal = tarning.returnAntalTarningar();
                             // tarning.tarningarArray(sparatAntal, sparadSida);
                             tarning.tarningarArray2(sparatAntal, sparadSida, sparaAntalSpelare);
 
