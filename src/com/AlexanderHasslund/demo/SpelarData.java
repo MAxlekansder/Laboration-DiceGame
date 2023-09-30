@@ -2,7 +2,7 @@ package com.AlexanderHasslund.demo;
 
 public class SpelarData {
 
-    int sparaAntalSpelare;
+    public static int sparaAntalSpelare;
     public static int antalRundor;
 
     public void sparaAntalSpelare() {

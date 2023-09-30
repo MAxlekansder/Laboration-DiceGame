@@ -13,12 +13,9 @@ public class Main {
         SpelarData spelarData = new SpelarData();
         Scoreboard scoreboard = new Scoreboard();
         StartUpGame startUpGame = new StartUpGame();
-        Tarningar tarning = new Tarningar();
-        boolean isPlaying = true;
-        boolean spelareReggad = false;
+        TarningsLogik tarningsLogik = new TarningsLogik();
 
-        int sparatAntal = 0;
-        int sparadSida = 0;
+        boolean spelareReggad = false;
         int turer = 0;
 
         startUpGame.startUpGame();
@@ -40,22 +37,10 @@ public class Main {
 
                     case 2:
                         if (spelareReggad && spelarData.sparaAntalSpelare >= 1) {
-                            if (sparadSida == 0) {
-                                System.out.println("Hur många sidor ska tärningen ha?");
-                                sparadSida = Input.intInput();
-                                tarning.setSidorTarningar(sparadSida);
-                            }
 
-                            if (sparatAntal == 0) {
-                                System.out.println("Hur många tärningar ska kastas per spelare?");
-                                sparatAntal = Input.intInput();
-                                tarning.setAntalTarningar(sparatAntal);
-                            }
-
-                            tarning.tarningarArray2(sparatAntal, sparadSida, spelarData.sparaAntalSpelare);
-                            scoreboard.sortSpelarLista();
-
+                            tarningsLogik.checkaOchKasta();
                             turer++;
+
                             if (turer == spelarData.antalRundor && spelarData.sparaAntalSpelare > 1) {
 
                                 hanteraVinnare.hanteraVinnare();
@@ -80,21 +65,21 @@ public class Main {
                         //Släng in blazer här
                         System.out.println("sortera");
                         scoreboard.sortSpelarLista();
-                        //rulla här eller i case 2?
-                        //kombinera spelare och tärningar
+
                         break;
                     case 4:
                         scoreboard.scoreboard();
                         break;
                     case 5:
                         System.out.println("Tack för att du spelade!");
-                        isPlaying = false;
+                        startUpGame.isPlaying = false;
                         break;
                     default:
                         System.out.println("Håll dig inom de angivna valen");
                 }
             } catch (MissingFormatWidthException e) {
                 System.out.println("Använd dig av heltal för att navigera menyn!");
+
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

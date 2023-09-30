@@ -14,7 +14,7 @@ public class HanteraVinnare {
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             if (Spelare.nySpelareArr.get(0).totalSumma == Spelare.nySpelareArr.get(i).totalSumma) {
                 Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 1;
-                System.out.println(Spelare.nySpelareArr.get(i).namn + " " + Spelare.nySpelareArr.get(i).isPlayerKeepTrue);
+                //System.out.println(Spelare.nySpelareArr.get(i).namn + " " + Spelare.nySpelareArr.get(i).isPlayerKeepTrue);
                 antalVinnare = antalVinnare + Spelare.nySpelareArr.get(i).isPlayerKeepTrue;
             }
         }
@@ -27,13 +27,13 @@ public class HanteraVinnare {
         }
 
         if (fleraVinnare) {
-            System.out.println("Vi har flera vinnare! ");
-            System.out.println("Är alla vinnare [J] eller vill ni rulla igen [N]? J//N");
+            System.out.println("\n\\u001B[32mVi har flera vinnare! ");
+            System.out.println("Är alla vinnare [J] eller vill ni rulla igen [N]? \u001B[0mJ//N");
 
             fleraVinnare2();
 
         } else {
-            System.out.println("\n \u001B[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
+            System.out.println("\n\\u001B[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
                     + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!");
         }
     }

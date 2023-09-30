@@ -6,8 +6,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-
-//behöver ses över - hur den bäst körs
 public class Tarningar {
 
     public static int antalTarningar;
@@ -37,18 +35,18 @@ public class Tarningar {
 
         //System.out.print("Hur många tärningar per spelare?: ");
         for (int i = 0; i < antalTarningArray2.length; i++) {
-            System.out.println("\nTryck enter för att rulla: " + Spelare.nySpelareArr.get(i).namn + "!");
+            System.out.print("\n\033[1;33mTryck enter för att rulla: \u001B[0m " + Spelare.nySpelareArr.get(i).namn + "!");
             String enter = Input.stringInput();
             if (enter.isEmpty() || enter.isBlank() || !enter.isEmpty()) {
                 for (int j = 0; j < antalTarningar; j++) {
                     antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
                 }
 
+                Spelare.nySpelareArr.get(i).totalSumma = Spelare.nySpelareArr.get(i).totalSumma + IntStream.of(antalTarningArray2[i]).sum();
                 System.out.println(Spelare.nySpelareArr.get(i).namn
                         + " rullade " + Arrays.toString(antalTarningArray2[i])
-                        + " och har totalt " + IntStream.of(antalTarningArray2[i]).sum() + " poäng");
-
-                Spelare.nySpelareArr.get(i).totalSumma = Spelare.nySpelareArr.get(i).totalSumma + IntStream.of(antalTarningArray2[i]).sum();
+                        + " med resultat: " + IntStream.of(antalTarningArray2[i]).sum() + " och totalt: "
+                        + Spelare.nySpelareArr.get(i).totalSumma + " poäng") ;
             }
         }
         turer++;
