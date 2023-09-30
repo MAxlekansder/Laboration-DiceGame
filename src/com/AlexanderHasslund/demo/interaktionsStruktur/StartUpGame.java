@@ -7,23 +7,29 @@ public class StartUpGame {
     public void startUpGame() {
 
         System.out.println("\n\u001B[1;33m\n\n------------------------------");
-        System.out.println("Välkommen till spelet!" );
+        System.out.println("Välkommen till tärningsspelet!!" );
         System.out.println("Det här spelet har två spelalternativ");
         System.out.println("Alternativet att välja tärning och sidor");
         System.out.println("Samt spelet: BLAZER [BETA]");
         System.out.println("------------------------------\n\u001B[0m");
     }
 
-    public void utslagsGame() {
+    public void utslagsGame() throws InterruptedException {
         System.out.println("\n\u001B[1;33m\n\n------------------------------");
         System.out.println("Välkommen till Utslagsrondan!!" );
         System.out.println("Nu nollställs alla poäng" );
         System.out.println("Lika många tärningar och lika många sidor!" );
         System.out.println("och ni alla som gick vidare");
-        System.out.println("börjar nu om på noll!");
+        System.out.println("börjar nu om på noll!\n");
+        System.out.println("Vilket betyder att ni inte kommer kunna");
+        System.out.println("spela igen, i slutet av spelet\n");
+        System.out.println("Det här är en utslagstävlning");
+        System.out.println("med endast en vinnare");
         System.out.println("------------------------------\n\u001B[0m");
 
-        //flytta ut den här eftersom vi inte kommer återkalla denna varje gång?
+        Thread.sleep(2000);
+        System.out.println("Lycka till...");
+
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             Spelare.nySpelareArr.get(i).totalSumma = 0;
         }
@@ -35,6 +41,12 @@ public class StartUpGame {
         if (spelaIgen.toLowerCase().equals("j")) {
             isPlaying = true;
         } else { isPlaying = false;}
+
+        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+            Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+            Spelare.nySpelareArr.get(i).totalSumma = 0;
+        }
+
     }
 
     public void menu() {
@@ -44,7 +56,6 @@ public class StartUpGame {
         System.out.println("2. KASTA TÄRNINGAR");
         System.out.println("3. GAME MODE: BLAZER ");
         System.out.println("4. SCOREBOARD");
-        System.out.println("4. SCOREBOARD ALL TIME");
         System.out.println("5. AVSLUTA SPELET\u001B[0m");
         System.out.print("Ditt val: ");
 

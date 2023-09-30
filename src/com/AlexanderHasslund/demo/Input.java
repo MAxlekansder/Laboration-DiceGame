@@ -31,10 +31,13 @@ public class Input {
             try {
                 Scanner intScan = new Scanner(System.in);
                 intInput = intScan.nextInt();
-                //intScan.nextLine(); verkar inte funga som tänkt <- ta bort överflödet.
-                intCheck = false;
-
-
+               // String catchBlankInput = intScan.nextLine();
+                if (intInput > 0) {
+                    //intScan.nextLine(); verkar inte funga som tänkt <- ta bort överflödet.
+                    intCheck = false;
+                } else {
+                    System.out.println("Heltalet behöver större än noll! och får inte vara tom");
+                }
             } catch (InputMismatchException e) {
                 System.out.println("Du behöver skriva in ett heltal för att komma vidare");
             }

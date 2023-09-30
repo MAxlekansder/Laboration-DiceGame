@@ -33,11 +33,8 @@ public class Main {
 
                 switch (användarVal) {
                     case 1:
-
                         spelarData.reggaSpelare();
                         spelarData.reggadSpelare();
-
-
                         spelareReggad = true;
                         break;
 
@@ -106,19 +103,3 @@ public class Main {
         while (startUpGame.isPlaying);
     }
 }
-   /*
-                        System.out.println("Ange namn och ålder för vardera spelare: ");
-
-                        for (int i = 0; i < sparaAntalSpelare; i++) {
-
-                            System.out.print("Namn Spelare " + (i + 1) + ": ");
-                            String namn = Input.stringInput();
-                            System.out.print("Ålder Spelare " + (i + 1) + ": ");
-                            int alder = Input.intInput();
-                            int uniktSpelarId = i + 1;
-
-                            nySpelare = new Spelare(namn, alder, uniktSpelarId, 0);
-                            Spelare.nySpelareArr.add(nySpelare);
-                        }*/
-
-//för att slippa att vi loopar rubriken

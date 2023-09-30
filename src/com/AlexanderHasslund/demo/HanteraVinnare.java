@@ -11,8 +11,6 @@ public class HanteraVinnare {
         int antalVinnare = 0;
         boolean fleraVinnare = false;
 
-
-
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             if (Spelare.nySpelareArr.get(0).totalSumma == Spelare.nySpelareArr.get(i).totalSumma) {
                 Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 1;
