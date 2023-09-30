@@ -9,8 +9,11 @@ import java.util.stream.IntStream;
 
 //behöver ses över - hur den bäst körs
 public class Tarningar {
-    public int antalTarningar;
-    public int antalSidor;
+    //tar bort static för att se om det fungerar
+    public static int antalTarningar;
+    public static int antalSidor;
+    public static int turer;
+
     //se över om det ska läggas in som en parameter
     //setter
     public void setAntalTarningar(int antalTarningar) {
@@ -22,12 +25,14 @@ public class Tarningar {
     public int getAntalTarningar() {
         return antalTarningar;
     }
+
     //se över om det ska läggas in som en parameter
     //setter
     public void setSidorTarningar(int antalSidor) {
         this.antalSidor = antalSidor;
         //return antalSidor;
     }
+
     //getter
     public int getSidorTarningar() {
         return antalSidor;
@@ -37,31 +42,25 @@ public class Tarningar {
     public void tarningarArray2(int antalTarningar, int antalSidor, int antalSpelare) {
         Random tarningRand = new Random();
         Scoreboard scoreboard = new Scoreboard();
-        int sum1 = 0; //överflödig
-
-
         int[][] antalTarningArray2 = new int[antalSpelare][antalTarningar];
+
         //System.out.print("Hur många tärningar per spelare?: ");
         for (int i = 0; i < antalTarningArray2.length; i++) {
-            for (int j = 0; j < antalTarningar; j++) {
-                antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
-                //totalSumma = totalSumma + antalTarningArray2[i][j];
-                //överflödig?
-                sum1 = sum1 + antalTarningArray2[i][j];
+            System.out.println("\nTryck enter för att rulla: " + Spelare.nySpelareArr.get(i).namn + "!");
+            String enter = Input.stringInput();
+            if (enter.isEmpty() || enter.isBlank()) {
+                for (int j = 0; j < antalTarningar; j++) {
+                    antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
+                }
+
+                System.out.println(Spelare.nySpelareArr.get(i).namn
+                        + " rullade " + Arrays.toString(antalTarningArray2[i])
+                        + " och har totalt " + IntStream.of(antalTarningArray2[i]).sum() + " poäng");
+
+                Spelare.nySpelareArr.get(i).totalSumma = Spelare.nySpelareArr.get(i).totalSumma + IntStream.of(antalTarningArray2[i]).sum();
             }
-            //System.out.println(totalSumma);
-            //System.out.println(Arrays.deepToString(antalTarningArray2));
-            System.out.println(Spelare.nySpelareArr.get(i).namn + " ----> " + Arrays.toString(antalTarningArray2[i]) + IntStream.of(antalTarningArray2[i]).sum());
-
-            Spelare.nySpelareArr.get(i).totalSumma = Spelare.nySpelareArr.get(i).totalSumma + IntStream.of(antalTarningArray2[i]).sum();
-            System.out.println(Spelare.nySpelareArr.get(i).namn + " " + Spelare.nySpelareArr.get(i).totalSumma);
-
-            //för testsyfte ta bort sen
-
-            //här kanske är ett bra tillfälle att få in spelare?
-            //och även kunna göra summeringen per array för att sen tilldela det till totalSumma...!!!
         }
-        scoreboard.scoreboard();
+        turer++;
     }
 }
 

@@ -23,8 +23,6 @@ public class Spelare {
         //this.totalSumma = totalSumma;
     }
 
-
-
     //används för att overrida så att objekten i arraylist printas...
    public String toString() {
         return (
@@ -32,19 +30,14 @@ public class Spelare {
                 "Unikt spelarId: " + this.uniktSpelarId + " || " +
                 "Ålder: "+ this.alder + " || " +
                 "Summa tärningar: " + this.totalSumma + " || " +
-                "Sant: " + this.isPlayerKeepTrue //<-- ta bort den härifrån sen, baraför backendsyfte...
+                "Sant: " + this.isPlayerKeepTrue //<-- ta bort den härifrån sen, bara för logik i backendsyfte...
                  //+ "\n"
                 );
-        //bästa stället att lagra allt om spelaren här?
     }
 
-    //se över om det ska läggas till som en parameter
     public int spelareAntal() {
         int antalSpelare = Input.intInput();
         return antalSpelare;
     }
-
-    //bör hålla det här för att sen kunna dela upp det
-
 
 }

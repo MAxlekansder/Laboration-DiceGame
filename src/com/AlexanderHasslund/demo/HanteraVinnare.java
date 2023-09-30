@@ -40,6 +40,7 @@ public class HanteraVinnare {
         }
     }
 
+
     public void fleraVinnare2() throws InterruptedException {
         Tarningar tarningar = new Tarningar();
         StartUpGame startUpGame = new StartUpGame();
@@ -58,7 +59,7 @@ public class HanteraVinnare {
                } else if (fleraVinnareVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
 
                    System.out.println("OK - Då kastar vi igen om: ");
-                   scoreboard.sortSpelarLista();
+
                    //kommer behövas logik för att förhindra att den bara repeterar 1 hela tiden.
                    //enklast är väl att bygga en struktur för "utslagsrundan"
                    Spelare.nySpelareArr.removeIf(n ->(n.isPlayerKeepTrue == 0));
@@ -77,7 +78,7 @@ public class HanteraVinnare {
                            Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
                        }
                        scoreboard.scoreboard();
-                       tarningar.tarningarArray2(tarningar.antalTarningar, tarningar.antalSidor, Spelare.nySpelareArr.size());
+                       tarningar.tarningarArray2(tarningar.getAntalTarningar(), tarningar.getSidorTarningar(), Spelare.nySpelareArr.size());
                        hanteraVinnare();
                    } else { testLoop = false;
 
@@ -88,85 +89,9 @@ public class HanteraVinnare {
                } else {
                    System.out.println("Välj rätt input!");
                }
-               System.out.println("Test test test kasta här?");
+
                //vi behöver kasta tärningar här inne igen
            } while (testLoop);
-
         }
-
-
-    public void fleraVinnare() throws InterruptedException {
-        StartUpGame startUpGame = new StartUpGame();
-        Tarningar tarningar = new Tarningar();
-        Scoreboard scoreboard = new Scoreboard();
-        String fleraVinnareVal = Input.stringInput();
-        boolean isStillWinners = true;
-        //den slutar bara, behöver loopa om det här så att det körs tills vi är klara...
-
-
-        if (fleraVinnareVal.toLowerCase().equals("j")) {
-
-            System.out.println("Grattis ni alla vann!");
-            for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-
-                if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 1 && fleraVinnareVal.toLowerCase().equals("j")) {
-
-                    System.out.println(Spelare.nySpelareArr.get(i).namn + " med: " + Spelare.nySpelareArr.get(i).totalSumma);
-                } else {
-                }
-
-            }
-            System.out.println("Bra spelat!");
-        } else {
-            System.out.println("OK - Då kastar vi igen om: ");
-            scoreboard.sortSpelarLista();
-            while (isStillWinners)
-                //den tar bort sin egna storlek, för varje element jag tar bort gör jag storleken mindre...
-                //räkna antalen borttagna?
-                for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-
-                    if (Spelare.nySpelareArr.get(i).isPlayerKeepTrue == 0) {
-
-                        Spelare.nySpelareArr.remove(i);
-                    }
-                    System.out.println((i + 1) + "...");
-                    Thread.sleep(1000);
-                }
-
-            // verkar inte alls fungera här... tror jag får köra en if bool i case2??
-            scoreboard.sortSpelarLista();
-            scoreboard.scoreboard();
-            startUpGame.utslagsGame();
-
-        }
-    }
 }
 
-
-
-
-
-/*
-if (isPlayerOneTrue) {
-scoreboard.scoreboard();
-System.out.println("\n \u001B[1;32m -----VINNAREN ÄR---- \u001B[0m ");
-System.out.println("\033[1;33m SPELARE: \u001B[0m " + Spelare.nySpelareArr.get(0).namn + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!");
-} else {
-System.out.println("Vi har flera vinnare!");
-System.out.println(Spelare.nySpelareArr);
-scoreboard.scoreboard();
-
-
-//fyll ut här med att ta genom det sista innan spelet slutas!
-//presentera en vinnare här med så att vi vet att någon vann!
-
-//få in en jämförelse mellan vinnaren och de undre! Så om 3st rullar 1 1 1, då har ju alla vunnit, eller ingen vunnit!
-
-scoreboard.scoreboard();
-
-System.out.println("\n \u001B[33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE: \u001B[0m " + Spelare.nySpelareArr.get(0).namn
-+ " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!");
-
-
-isPlaying = false;
-*/
