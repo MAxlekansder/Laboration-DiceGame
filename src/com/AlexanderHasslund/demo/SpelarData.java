@@ -5,6 +5,13 @@ public class SpelarData {
     public static int sparaAntalSpelare;
     public static int antalRundor;
 
+    public void checkAntalSpelare() throws InterruptedException {
+        if (sparaAntalSpelare <= 1) {
+            System.out.println("\n\033[1;37mDet är roligare att spela med fler \nMen det går bra att spela själv med! \nHa så kul!\033[0m");
+            Thread.sleep(1500);
+        }
+
+    }
     public void sparaAntalSpelare() {
         System.out.println("Hur många spelare? ");
         int sparaAntalSpelare = Input.intInput();
