@@ -1,8 +1,8 @@
 package com.AlexanderHasslund.demo;
 
+import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class Spelare {
 

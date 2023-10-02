@@ -1,5 +1,7 @@
 package com.AlexanderHasslund.demo;
 
+import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
+
 public class SpelarData {
 
     public static int sparaAntalSpelare;
@@ -18,25 +20,36 @@ public class SpelarData {
         this.sparaAntalSpelare = sparaAntalSpelare;
     }
     public void sparaAntalRundor() {
-        System.out.println("Hur många rundor? ");
+        System.out.println("Hur många rundor? OBS GÄLLER EJ BLAZER!");
         int antalRundor = Input.intInput();
         this.antalRundor = antalRundor;
     }
 
     public void reggaSpelare() {
-
+        boolean catchNamnInput = true;
         Spelare nySpelare;
+        String namn;
+
         System.out.println("Ange namn och ålder för vardera spelare: ");
         for (int i = 0; i < sparaAntalSpelare; i++) {
 
-            System.out.print("Namn Spelare " + (i + 1) + ": ");
-            String namn = Input.stringInput();
+            do {
+                System.out.print("Namn Spelare " + (i + 1) + ": ");
+                namn = Input.stringInput();
+                if (!namn.isEmpty() || !namn.isBlank()) {
+                    catchNamnInput = false;
+                } else {
+                    System.out.println("Du måste skriva ditt namn!");
+                }
+            } while (catchNamnInput);
+
             System.out.print("Ålder Spelare " + (i + 1) + ": ");
             int alder = Input.intInput();
             int uniktSpelarId = i + 1;
 
             nySpelare = new Spelare(namn, alder, uniktSpelarId, 0);
             Spelare.nySpelareArr.add(nySpelare);
+            catchNamnInput = true;
         }
     }
 

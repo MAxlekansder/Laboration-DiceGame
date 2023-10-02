@@ -1,95 +1,136 @@
 package com.AlexanderHasslund.demo;
 
+import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
+import com.AlexanderHasslund.demo.interaktionsStruktur.Menyer;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
-import com.AlexanderHasslund.demo.interaktionsStruktur.StartUpGame;
-import org.w3c.dom.ls.LSOutput;
+import com.AlexanderHasslund.demo.interaktionsStruktur.SpelarInfoMeddelanden;
 
 public class HanteraVinnare {
+    public static String sparaAnvändarVal;
+    int tur = 0;
+    boolean isEnsamSpelare = true;
 
-    public void hanteraVinnare() throws InterruptedException {
-        Scoreboard scoreboard = new Scoreboard();
+    public void mainHanteraVinnare() throws InterruptedException {
+        SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
+
+        do {
+            checkSpelareVidare();
+            int getAntalVinnare = adderaSpelareCheck();
+            if (getAntalVinnare > 1 && tur < 1) {
+                spelarInfoMeddelanden.utslagsGame();
+                omSpelareVal();
+                användarInputYesorNo();
+                tur++;
+            } else {
+                användarInputYesorNo();
+                checkSpelareVidare();
+                vinnareEllerRullaIgen();
+            }
+        } while (isEnsamSpelare);
+    }
+
+    public int adderaSpelareCheck() {
         int antalVinnare = 0;
-        boolean fleraVinnare = false;
 
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             if (Spelare.nySpelareArr.get(0).totalSumma == Spelare.nySpelareArr.get(i).totalSumma) {
                 Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 1;
-                //System.out.println(Spelare.nySpelareArr.get(i).namn + " " + Spelare.nySpelareArr.get(i).isPlayerKeepTrue);
+
                 antalVinnare = antalVinnare + Spelare.nySpelareArr.get(i).isPlayerKeepTrue;
             }
         }
+        return antalVinnare;
+    }
+
+    public boolean checkSpelareVidare() {
+        int getAntalVinnare = adderaSpelareCheck();
+
+        boolean fleraVinnare = false;
 
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-            if (antalVinnare > 1) {
+            if (getAntalVinnare > 1) {
                 fleraVinnare = true;
                 break;
             }
         }
+        return fleraVinnare;
+    }
+
+    public void vinnareEllerRullaIgen() {
+        boolean fleraVinnare = checkSpelareVidare();
 
         if (fleraVinnare) {
-            System.out.println("\n\\u001B[32mVi har flera vinnare! ");
-            System.out.println("Är alla vinnare [J] eller vill ni rulla igen [N]? \u001B[0mJ//N");
-
-            fleraVinnare2();
-
+            kastaTarningMedSpelareReset();
         } else {
-            System.out.println("\n\\u001B[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
-                    + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!");
+            System.out.println("\n\033[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
+                    + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!\n");
+            Spelare.nySpelareArr.removeIf(n -> (n.isPlayerKeepTrue == 0));
+            Menyer.isPlaying = false;
+            isEnsamSpelare = false;
         }
     }
 
+    public void omSpelareVal() {
+        boolean catchStringInput = true;
+        if (HanteraVinnare.sparaAnvändarVal == null) {
+            do {
 
-    public void fleraVinnare2() throws InterruptedException {
-        Tarningar tarningar = new Tarningar();
-        StartUpGame startUpGame = new StartUpGame();
-        Scoreboard scoreboard = new Scoreboard();
-        String fleraVinnareVal = Input.stringInput();
-        boolean testLoop = true;
-        int sizeOfArrayList = Spelare.nySpelareArr.size();
+                System.out.println("\033[1;34mÄr alla vinnare [J] eller vill ni starta utslagsrundan [N]? \u001B[0mJ/N");
+                HanteraVinnare.sparaAnvändarVal = Input.stringInput();
 
-        startUpGame.utslagsGame();
-
-           do {
-               int catchPlayerRemoval = 0;
-               if (fleraVinnareVal.toLowerCase().equals("j")) {
-                   System.out.println("Alla vann!");
-                   //gör en alla vann-metod som kallas på här
-               } else if (fleraVinnareVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
-
-                   System.out.println("OK - Då kastar vi igen om: ");
-
-                   //kommer behövas logik för att förhindra att den bara repeterar 1 hela tiden.
-                   //enklast är väl att bygga en struktur för "utslagsrundan"
-                   Spelare.nySpelareArr.removeIf(n ->(n.isPlayerKeepTrue == 0));
-                   scoreboard.sortSpelarLista();
-
-                    //egen metod för läsvänlighetens skull?
-                   for (int i = 0; i < 3; i++) {
-                       System.out.println((i + 1) + "...");
-                       Thread.sleep(1000);
-                   }
-
-
-                   if (Spelare.nySpelareArr.size() > 1) {
-                       testLoop = true;
-                       for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-                           Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
-                       }
-                       scoreboard.scoreboard();
-                       tarningar.tarningarArray2(tarningar.getAntalTarningar(), tarningar.getSidorTarningar(), Spelare.nySpelareArr.size());
-                       hanteraVinnare();
-                   } else { testLoop = false;
-
-                       hanteraVinnare();
-                   }
-                   //kalla på en metod som håller det här istället -> känns som att koden bara blir bulkig av fortsätta här i?
-
-               } else {
-                   System.out.println("Välj rätt input!");
-               }
-
-               //vi behöver kasta tärningar här inne igen
-           } while (testLoop);
+                if (HanteraVinnare.sparaAnvändarVal.toLowerCase().equals("n") || HanteraVinnare.sparaAnvändarVal.toLowerCase().equals("j")) {
+                    catchStringInput = false;
+                } else {
+                    System.out.println("svara med 'J' eller 'N' för att komma vidare...");
+                }
+            } while (catchStringInput);
         }
+        //return catchStringInput;
+    }
+
+    public void användarInputYesorNo() throws InterruptedException {
+        Scoreboard scoreboard = new Scoreboard();
+        int getAntalVinnare = adderaSpelareCheck();
+
+        if (getAntalVinnare > 1) {
+
+            if (HanteraVinnare.sparaAnvändarVal.toLowerCase().equals("j")) {
+                System.out.println("Alla vann!");
+
+            } else if (HanteraVinnare.sparaAnvändarVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
+
+                System.out.println("OK - Då kastar vi igen om: rad 112 2 ");
+                for (int i = 0; i < 3; i++) {
+                    System.out.println((i + 1) + "...");
+                    Thread.sleep(1000);
+                }
+
+                Spelare.nySpelareArr.removeIf(n -> (n.isPlayerKeepTrue == 0));
+                scoreboard.sortSpelarLista();
+
+                for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+                    Spelare.nySpelareArr.get(i).totalSumma = 0;
+
+                }
+                for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+                    Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+                }
+            }
+        }
+    }
+
+    public void kastaTarningMedSpelareReset() {
+        Tarningar tarningar = new Tarningar();
+        Scoreboard scoreboard = new Scoreboard();
+        scoreboard.utslagsScoreboard();
+
+        if (Spelare.nySpelareArr.size() > 1) {
+            for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+                Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+            }
+            tarningar.tarningarArray(tarningar.getAntalTarningar(), tarningar.getSidorTarningar(), Spelare.nySpelareArr.size());
+        }
+    }
 }
+
 

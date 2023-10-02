@@ -1,5 +1,4 @@
 package com.AlexanderHasslund.demo.interaktionsStruktur;
-import com.AlexanderHasslund.demo.Input;
 import com.AlexanderHasslund.demo.SpelarData;
 import com.AlexanderHasslund.demo.Spelare;
 import com.AlexanderHasslund.demo.Tarningar;
@@ -21,9 +20,21 @@ public class Scoreboard{
         }
         System.out.println("Tryck enter för att fortsätta...");
         String enter = Input.stringInput();
-        //if (enter.isEmpty() || enter.isBlank() || !enter.isEmpty()) {
+    }
 
-          //  }
+    public void utslagsScoreboard() {
+        SpelarData spelarData = new SpelarData();
+
+        System.out.println(String.format("\n%-20s", "\033[1;33m --- UTSLAGSRUNDA ---\u001B[0m "));
+
+        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+
+            System.out.print("\033[1;33mSPELARE " + Spelare.nySpelareArr.get(i).uniktSpelarId + "\u001B[0m ");
+            System.out.println(Spelare.nySpelareArr.get(i).toString());
+
+        }
+        System.out.println("Tryck enter för att fortsätta...");
+        String enter = Input.stringInput();
     }
     public void sortSpelarLista() {
         Collections.sort(Spelare.nySpelareArr, new Comparator<Spelare>() {

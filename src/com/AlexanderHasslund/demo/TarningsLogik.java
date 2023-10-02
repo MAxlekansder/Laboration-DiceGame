@@ -1,5 +1,6 @@
 package com.AlexanderHasslund.demo;
 
+import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 
 public class TarningsLogik {
@@ -8,7 +9,6 @@ public class TarningsLogik {
 
     public void checkaOchKasta() {
         Tarningar tarning = new Tarningar();
-        SpelarData spelarData = new SpelarData();
         Scoreboard scoreboard = new Scoreboard();
 
 
@@ -24,7 +24,7 @@ public class TarningsLogik {
             tarning.setAntalTarningar(sparatAntal);
         }
 
-        tarning.tarningarArray2(sparatAntal, sparadSida, SpelarData.sparaAntalSpelare);
+        tarning.tarningarArray(sparatAntal, sparadSida, SpelarData.sparaAntalSpelare);
         scoreboard.sortSpelarLista();
     }
 }

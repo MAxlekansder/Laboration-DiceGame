@@ -1,4 +1,4 @@
-package com.AlexanderHasslund.demo;
+package com.AlexanderHasslund.demo.interaktionsStruktur;
 import java.util.Scanner;
 import java.util.*;
 
