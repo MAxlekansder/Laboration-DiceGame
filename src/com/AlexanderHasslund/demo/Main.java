@@ -1,10 +1,7 @@
 package com.AlexanderHasslund.demo;
 
 import com.AlexanderHasslund.demo.Blazer.BlazerMain;
-import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
-import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
-import com.AlexanderHasslund.demo.interaktionsStruktur.Menyer;
-import com.AlexanderHasslund.demo.interaktionsStruktur.SpelarInfoMeddelanden;
+import com.AlexanderHasslund.demo.interaktionsStruktur.*;
 
 import java.util.*;
 
@@ -13,7 +10,6 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         //instansiera allt här
-
         HanteraVinnare hanteraVinnare = new HanteraVinnare();
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
         BlazerMain blazerMain = new BlazerMain();
@@ -41,13 +37,13 @@ public class Main {
                             spelarData.reggaSpelare();
                             spelarData.reggadSpelare();
                             spelareReggad = true;
-                            break;
+
                         } else {
                             System.out.println("Alla spelare för denna runda är registrerade!");
-                            break;
                         }
-
+                        break;
                     case 2:
+
                         if (spelareReggad && spelarData.sparaAntalSpelare >= 1) {
                             tarningsLogik.checkaOchKasta();
                             turer++;
@@ -71,6 +67,7 @@ public class Main {
                             System.out.println("Registrera alla spelare först, innan ni kastar tärningar!");
                         }
                         break;
+
                     case 3:
                         if (spelareReggad) {
 
@@ -80,10 +77,12 @@ public class Main {
                             System.out.println("Registrera alla spelare först, innan ni kastar tärningar!");
                         }
                         break;
+
                     case 4:
                         scoreboard.sortSpelarLista();
                         scoreboard.scoreboard();
                         break;
+
                     case 5:
                         System.out.println("Tack för att du spelade!");
                         menyer.isPlaying = false;

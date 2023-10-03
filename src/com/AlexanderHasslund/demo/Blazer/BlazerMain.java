@@ -1,5 +1,4 @@
 package com.AlexanderHasslund.demo.Blazer;
-
 import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
 import com.AlexanderHasslund.demo.Spelare;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Menyer;
@@ -22,20 +21,23 @@ public class BlazerMain {
         }
 
 
-
         do {
             menyer.menuBlazer();
             int användarValBlazer = Input.intInput();
             switch (användarValBlazer) {
                 case 1:
-                    // kasta tärning
-                    blazerTarning.mainBlazerTarning();
+                    // kasta tärningblazer
+
+                    blazerTarning.antalOmgångar();
+                    menyer.isPlayingBlazer = false;
+                    menyer.isPlaying = false;
                     break;
                 case 2:
                     //Scoreboard
                     break;
                 case 3:
                     menyer.isPlayingBlazer = false;
+                    menyer.isPlaying = false;
                     break;
             }
         } while(menyer.isPlayingBlazer);

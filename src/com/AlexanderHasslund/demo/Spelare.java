@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Spelare {
 
     public static ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
-    String namn;
+    public String namn;
     int alder;
     public int totalSumma;
     public int uniktSpelarId;
@@ -31,7 +31,6 @@ public class Spelare {
                 "Ålder: "+ this.alder + " || " +
                 "Summa tärningar: " + this.totalSumma + " || " +
                 "Sant: " + this.isPlayerKeepTrue //<-- ta bort den härifrån sen, bara för logik i backendsyfte...
-                 //+ "\n"
                 );
     }
 

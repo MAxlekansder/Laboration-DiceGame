@@ -1,5 +1,7 @@
 package com.AlexanderHasslund.demo.interaktionsStruktur;
 
+import com.AlexanderHasslund.demo.Spelare;
+
 public class SpelarInfoMeddelanden {
 
     public void startUpGame() {
@@ -15,19 +17,16 @@ public class SpelarInfoMeddelanden {
     public void blazerGame() throws InterruptedException {
         Menyer menyer = new Menyer();
 
-        menyer.isFinalPlaying = false;
-        System.out.println("\n\u001B[1;34m------------------------------");
+        System.out.println("\n\u001B[1;31m------------------------------");
         System.out.println("VÄLKOMMEN TILL BLAZER!");
-        Thread.sleep(2500);
+        Thread.sleep(1000);
         System.out.println("Alla spelare får en tärning");
         System.out.println("värdet på tärningen är 6");
-        System.out.println("först till 21 vinner under 6 ronder\n");
+        System.out.println("först till 21 vinner eller högst poäng under 6 ronder!\n");
         Thread.sleep(2500);
         System.out.println("Är du under 10 poäng efter 3 runder");
-        System.out.println("Åker du ut!!\u001B[0m\n");
+        System.out.println("Åker du ut!!");
         System.out.println("------------------------------\u001B[0m");
-        Thread.sleep(3500);
-        System.out.println("...Lycka till!");
     }
 
     public void utslagsGame() throws InterruptedException {
@@ -44,5 +43,13 @@ public class SpelarInfoMeddelanden {
 
     }
 
+    public void enterSpelareVidare() {
+        System.out.println("Tryck enter för att fortsätta...");
+        String enter = Input.stringInput();
+    }
 
+    public void omEndastEnVinnare() {
+        System.out.println("\n\033[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
+                + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!\n");
+    }
 }

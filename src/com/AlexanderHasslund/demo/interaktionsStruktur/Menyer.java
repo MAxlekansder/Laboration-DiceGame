@@ -2,7 +2,7 @@ package com.AlexanderHasslund.demo.interaktionsStruktur;
 
 public class Menyer {
     public static boolean isPlaying = true;
-    public boolean isFinalPlaying = true;
+
     public boolean isPlayingBlazer = true;
 
     public void menu() {

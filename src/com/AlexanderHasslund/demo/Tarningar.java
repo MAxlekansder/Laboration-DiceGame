@@ -41,7 +41,7 @@ public class Tarningar {
 
             if (enter.isEmpty() || enter.isBlank() || !enter.isEmpty()) {
                 for (int j = 0; j < antalTarningar; j++) {
-                    antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
+                   antalTarningArray2[i][j] = tarningRand.nextInt(antalSidor) + 1;
                 }
 
                 Spelare.nySpelareArr.get(i).totalSumma = Spelare.nySpelareArr.get(i).totalSumma + IntStream.of(antalTarningArray2[i]).sum();

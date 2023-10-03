@@ -18,9 +18,7 @@ public class Input {
                 System.out.println("Du behöver skriva in ett strängvärde för att komma vidare");
             }
         }
-
         return stringInput;
-
     }
 
     public static int intInput() {

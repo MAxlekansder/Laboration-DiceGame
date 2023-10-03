@@ -1,5 +1,4 @@
 package com.AlexanderHasslund.demo;
-
 import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Menyer;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
@@ -12,6 +11,7 @@ public class HanteraVinnare {
 
     public void mainHanteraVinnare() throws InterruptedException {
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
+        Menyer menyer = new Menyer();
 
         do {
             checkSpelareVidare();
@@ -19,11 +19,15 @@ public class HanteraVinnare {
             if (getAntalVinnare > 1 && tur < 1) {
                 spelarInfoMeddelanden.utslagsGame();
                 omSpelareVal();
-                användarInputYesorNo();
                 tur++;
             } else {
                 användarInputYesorNo();
                 checkSpelareVidare();
+                if (HanteraVinnare.sparaAnvändarVal.toLowerCase().equals("j")) {
+                    Menyer.isPlaying = false;
+                    break;
+
+                }
                 vinnareEllerRullaIgen();
             }
         } while (isEnsamSpelare);
@@ -42,6 +46,7 @@ public class HanteraVinnare {
         return antalVinnare;
     }
 
+
     public boolean checkSpelareVidare() {
         int getAntalVinnare = adderaSpelareCheck();
 
@@ -56,11 +61,12 @@ public class HanteraVinnare {
         return fleraVinnare;
     }
 
-    public void vinnareEllerRullaIgen() {
+
+    public void vinnareEllerRullaIgen() { // check om vi har flera vinnare / oavgjort
         boolean fleraVinnare = checkSpelareVidare();
 
         if (fleraVinnare) {
-            kastaTarningMedSpelareReset();
+            kastaTarningUtslag();
         } else {
             System.out.println("\n\033[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn
                     + " med: " + Spelare.nySpelareArr.get(0).totalSumma + " poäng! \n Gratulerar!\n");
@@ -70,7 +76,8 @@ public class HanteraVinnare {
         }
     }
 
-    public void omSpelareVal() {
+
+    public void omSpelareVal() { // frågar användaren om alla vann eller om de vill göra upp
         boolean catchStringInput = true;
         if (HanteraVinnare.sparaAnvändarVal == null) {
             do {
@@ -85,11 +92,10 @@ public class HanteraVinnare {
                 }
             } while (catchStringInput);
         }
-        //return catchStringInput;
     }
 
-    public void användarInputYesorNo() throws InterruptedException {
-        Scoreboard scoreboard = new Scoreboard();
+
+    public void användarInputYesorNo() throws InterruptedException { // tar värdet N / Y och statiskt lagrar det för att inte fråga anv igen
         int getAntalVinnare = adderaSpelareCheck();
 
         if (getAntalVinnare > 1) {
@@ -99,36 +105,53 @@ public class HanteraVinnare {
 
             } else if (HanteraVinnare.sparaAnvändarVal.toLowerCase().equals("n") && Spelare.nySpelareArr.size() > 1) {
 
-                System.out.println("OK - Då kastar vi igen om: rad 112 2 ");
-                for (int i = 0; i < 3; i++) {
-                    System.out.println((i + 1) + "...");
-                    Thread.sleep(1000);
-                }
+                //scoreboard.utslagsScoreboard();
+                System.out.println("Tryck enter när ni är redo att köra igen:");
+                String enter = Input.stringInput();
+                if (enter.isEmpty() || enter.isBlank() || !enter.isEmpty()) {
 
-                Spelare.nySpelareArr.removeIf(n -> (n.isPlayerKeepTrue == 0));
-                scoreboard.sortSpelarLista();
-
-                for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-                    Spelare.nySpelareArr.get(i).totalSumma = 0;
-
-                }
-                for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-                    Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+                    System.out.println("Då kastar vi igen om: ");
+                    for (int i = 0; i < 3; i++) {
+                        System.out.println((i + 1) + "...");
+                        Thread.sleep(1000);
+                    }
+                    taBortSpelareNollställ();
                 }
             }
         }
     }
 
-    public void kastaTarningMedSpelareReset() {
+
+    public void taBortSpelareNollställ() { // tar bort spelare som inte klara sig vid oavgjort
+        Scoreboard scoreboard = new Scoreboard();
+        Spelare.nySpelareArr.removeIf(n -> (n.isPlayerKeepTrue == 0));
+        scoreboard.sortSpelarLista();
+
+        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+            Spelare.nySpelareArr.get(i).totalSumma = 0;
+        }
+        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+            Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+        }
+    }
+
+
+    public void kastaTarningUtslag() {  // nollställer check och kastar igen
         Tarningar tarningar = new Tarningar();
         Scoreboard scoreboard = new Scoreboard();
         scoreboard.utslagsScoreboard();
 
-        if (Spelare.nySpelareArr.size() > 1) {
+        if (Spelare.nySpelareArr.size() > 1 && tarningar.getAntalTarningar() != 0) { // != 0 avgör spelmodet här...
             for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
                 Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
             }
-            tarningar.tarningarArray(tarningar.getAntalTarningar(), tarningar.getSidorTarningar(), Spelare.nySpelareArr.size());
+            tarningar.tarningarArray(tarningar.getAntalTarningar(), tarningar.getSidorTarningar(), Spelare.nySpelareArr.size()); // för vanligt spel
+
+        } else {
+            for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+                Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;
+            }
+            tarningar.tarningarArray(1, 6, Spelare.nySpelareArr.size()); // för game mode: Blazer
         }
     }
 }
