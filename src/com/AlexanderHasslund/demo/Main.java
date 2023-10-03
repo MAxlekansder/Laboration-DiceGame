@@ -13,7 +13,7 @@ public class Main {
         HanteraVinnare hanteraVinnare = new HanteraVinnare();
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
         BlazerMain blazerMain = new BlazerMain();
-        SpelarData spelarData = new SpelarData();
+        SpelarLogik spelarLogik = new SpelarLogik();
         Scoreboard scoreboard = new Scoreboard();
         Menyer menyer = new Menyer();
         TarningsLogik tarningsLogik = new TarningsLogik();
@@ -21,9 +21,9 @@ public class Main {
         int turer = 0;
 
         spelarInfoMeddelanden.startUpGame();
-        spelarData.sparaAntalSpelare();
-        spelarData.sparaAntalRundor();
-        spelarData.checkAntalSpelare();
+        spelarLogik.sparaAntalSpelare();
+        spelarLogik.sparaAntalRundor();
+        spelarLogik.checkAntalSpelare();
 
 
         do {
@@ -34,8 +34,8 @@ public class Main {
                 switch (användarVal) {
                     case 1:
                         if (!spelareReggad) {
-                            spelarData.reggaSpelare();
-                            spelarData.reggadSpelare();
+                            spelarLogik.reggaSpelare();
+                            spelarLogik.reggadSpelare();
                             spelareReggad = true;
 
                         } else {
@@ -44,19 +44,19 @@ public class Main {
                         break;
                     case 2:
 
-                        if (spelareReggad && spelarData.sparaAntalSpelare >= 1) {
+                        if (spelareReggad && spelarLogik.sparaAntalSpelare >= 1) {
                             tarningsLogik.checkaOchKasta();
                             turer++;
 
-                            if (turer == spelarData.antalRundor && spelarData.sparaAntalSpelare > 1) {
+                            if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare > 1) {
 
                                 //hanteraVinnare.hanteraVinnare();
                                 hanteraVinnare.mainHanteraVinnare();
 
-                            } else if (turer == spelarData.antalRundor && spelarData.sparaAntalSpelare == 1) {
+                            } else if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare == 1) {
                                 System.out.println("Du rullade bra!");
                                 System.out.println("Tack för att du spelade!");
-                                Menyer.isPlaying = false;
+                                SpelarLogik.isPlaying = false;
 
                             } else {
                                 scoreboard.scoreboard();
@@ -85,7 +85,7 @@ public class Main {
 
                     case 5:
                         System.out.println("Tack för att du spelade!");
-                        menyer.isPlaying = false;
+                        SpelarLogik.isPlaying = false;
                         break;
                     default:
                         System.out.println("Håll dig inom de angivna valen");
@@ -97,6 +97,6 @@ public class Main {
                 throw new RuntimeException(e);
             }
         }
-        while (Menyer.isPlaying);
+        while (SpelarLogik.isPlaying);
     }
 }

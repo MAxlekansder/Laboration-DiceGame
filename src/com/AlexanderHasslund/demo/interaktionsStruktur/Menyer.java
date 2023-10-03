@@ -1,11 +1,10 @@
 package com.AlexanderHasslund.demo.interaktionsStruktur;
 
 public class Menyer {
-    public static boolean isPlaying = true;
 
-    public boolean isPlayingBlazer = true;
+    //static för att ta med mig värdet och ersätter det bara om det behövs
 
-    public void menu() {
+    public void menu() { // här inne ligger bara menyval för användaren -> inget viktigt
 
         //Kan vara bra att se över vilka val det ska vara
         System.out.println("\n\u001B[1;34m------------------------------");
@@ -23,8 +22,7 @@ public class Menyer {
         //Kan vara bra att se över vilka val det ska vara
         System.out.println("\n\u001B[1;34m------------------------------");
         System.out.println("1. STARTA BLAZER");
-        System.out.println("2. SCOREBOARD");
-        System.out.println("3. AVSLUTA SPELET");
+        System.out.println("2. AVSLUTA SPELET");
         System.out.println("------------------------------\u001B[0m");
         System.out.print("Ditt val: ");
     }

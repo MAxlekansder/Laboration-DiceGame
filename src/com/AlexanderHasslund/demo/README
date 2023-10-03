@@ -1,0 +1,26 @@
+/*FIXME
+   jag har jobbat mycket med statiska metoder i det här projektet.
+   Varför jag har gjort det har att göra programmets struktur.
+   jag vill kunna erbjuda användaren/användarna möjligheten att
+   kunna spela flera rundor inom samma körning, utan att behöva
+   fråga användaren om samma input om och om igen
+   -> man kan tänka att det ger lite mer DRY och MIMC men...
+ */
+
+/*TODO
+   Det som jag vill att du kollar på är följande klasser:
+   Input - scannerklass och lite hur jag använder den
+        -> att jag inte tillåter vad som helst och faktiskt blockerar användaren från vissa val
+   Spelare - hur jag arbetar med arraylist och lagrar saker i den
+   Tarningar - just metoden tarningarArray, där jag kastar per spelare, sumnerar spelarens resultat
+   HanteraVinnare - Den här är köttig med många metoder, har skrivit kommenterar om vad allt gör
+        -> det som är viktigt att ta med är helheten. Om det är flera vinnare, att det kastas till att någon vinner tex.
+   Blazer - är ett litet eget snabbspel, det har inte testats lika mycket och inte heller fått lika mycket tid på sig.
+        -> se det som en bonus...
+ */
+
+ Man kan säkert göra det projektet mycket enklare och hade jag haft den kunskapen hade jag nog börjat om.
+ Som sagt blev det väldigt mycket MIMC här och jag började, sen byggde jag bara på. Det har gått fram och tillbaka
+ men jag har försökt att återanvända saker flera gånger för att inte göra projektet 'DRY'.
+ Det som gjorde att saker blev mycket var programmets interaktion med användaren -> det är mycket fokus på att hålla
+ användaren i handen och det ledde till extrakod för att hantera det här.

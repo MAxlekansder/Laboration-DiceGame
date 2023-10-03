@@ -9,6 +9,7 @@ import java.util.stream.IntStream;
 
 public class Tarningar {
 
+    //dessa är statiska eftersom jag vill behålla värdet som lagras här, detta är alltså med mening
     public static int antalTarningar;
     public static int antalSidor;
     public static int turer;
@@ -28,6 +29,7 @@ public class Tarningar {
     public int getSidorTarningar() {
         return antalSidor;
     }
+
 
     public void tarningarArray(int antalTarningar, int antalSidor, int antalSpelare) {
         Random tarningRand = new Random();

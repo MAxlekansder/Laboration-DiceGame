@@ -4,8 +4,10 @@ import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
 
 import java.util.ArrayList;
 
+//definierar spelaren och arraylisten för att hålla spelaren
 public class Spelare {
 
+    //arraylist object -> inte bunden till en datatyp
     public static ArrayList<Spelare> nySpelareArr = new ArrayList<Spelare>();
     public String namn;
     int alder;
@@ -13,7 +15,7 @@ public class Spelare {
     public int uniktSpelarId;
     public int isPlayerKeepTrue;
 
-    //går att stoppa in en array hör för att använda sig av det vid tilldeningen till spelareId
+    //konstruktor för att kunna skapa upp spelaren
     public Spelare(String namn, int alder, int uniktSpelarId, int totalSumma) { //<-- tog bort int totalSumma...
         Tarningar tarning = new Tarningar();
         this.namn = namn;

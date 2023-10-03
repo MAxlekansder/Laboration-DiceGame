@@ -43,10 +43,6 @@ public class SpelarInfoMeddelanden {
 
     }
 
-    public void enterSpelareVidare() {
-        System.out.println("Tryck enter för att fortsätta...");
-        String enter = Input.stringInput();
-    }
 
     public void omEndastEnVinnare() {
         System.out.println("\n\033[1;33m -----VINNAREN ÄR---- \n\033[1;33m SPELARE:\u001B[0m " + Spelare.nySpelareArr.get(0).namn

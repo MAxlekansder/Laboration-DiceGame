@@ -2,7 +2,7 @@ package com.AlexanderHasslund.demo.interaktionsStruktur;
 import java.util.Scanner;
 import java.util.*;
 
-public class Input {
+public class Input { // scannerklass som tar emot både string och int -> styr detta genom att retunera värdet
 
     public static String stringInput() {
         String stringInput = null;
