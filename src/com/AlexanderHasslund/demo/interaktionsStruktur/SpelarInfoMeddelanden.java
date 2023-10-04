@@ -31,7 +31,8 @@ public class SpelarInfoMeddelanden {
 
     public void utslagsGame() throws InterruptedException {
         System.out.println("\n\u001B[1;33m\n\n------------------------------");
-        System.out.println("Nu finns alternativet till Utslagsrondan!!" );
+        System.out.println("Vi har flera vinnare! vilket betyer: \n");
+        System.out.println("Att nu finns alternativet till Utslagsrondan!!" );
         System.out.println("där alla poäng nollställs!\n" );
         Thread.sleep(1500);
         System.out.println("Lika många tärningar och lika många sidor som tidigare!" );

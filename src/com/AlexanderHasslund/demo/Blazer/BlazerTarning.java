@@ -1,9 +1,6 @@
 package com.AlexanderHasslund.demo.Blazer;
 
-import com.AlexanderHasslund.demo.HanteraVinnare;
-import com.AlexanderHasslund.demo.SpelarLogik;
-import com.AlexanderHasslund.demo.Spelare;
-import com.AlexanderHasslund.demo.Tarningar;
+import com.AlexanderHasslund.demo.*;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Menyer;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
@@ -14,7 +11,7 @@ public class BlazerTarning {
     //hanterar alla övriga metoder och kör alla metoder beroende på ett par kriterier
     public void antalOmgångar() throws InterruptedException {
         Scoreboard scoreboard = new Scoreboard();
-        HanteraVinnare hanteraVinnare = new HanteraVinnare();
+        HanteraVinnareTest hanteraVinnareTest = new HanteraVinnareTest();
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
 
         if (Spelare.nySpelareArr.isEmpty()) {
@@ -22,7 +19,7 @@ public class BlazerTarning {
         } else {
 
             do {
-                for (int i = 0; i < 7; i++) {
+                for (int i = 0; i < 6; i++) {
                     System.out.println("\n\033[1;33m --- RONDA " + (i + 1) + " ---\u001B[0m");
                     System.out.println("Tryck enter för att fortsätta...");
                     String enter = Input.stringInput();
@@ -46,8 +43,8 @@ public class BlazerTarning {
                         SpelarLogik.isPlayingBlazer = false;
                         break;
                     }
-                    if (i == 6 && Spelare.nySpelareArr.size() > 1) {
-                        hanteraVinnare.mainHanteraVinnare();
+                    if (i == 5 && Spelare.nySpelareArr.size() > 1) {
+                        hanteraVinnareTest.hanteraVinnare();
                         SpelarLogik.isPlayingBlazer = false;
                         break;
                     }
@@ -57,8 +54,6 @@ public class BlazerTarning {
                         SpelarLogik.isPlayingBlazer = false;
                         break;
                     }
-
-
                 }
             } while (SpelarLogik.isPlayingBlazer);
         }
@@ -72,7 +67,6 @@ public class BlazerTarning {
             }
         }
     }
-
     //om spelaren inte klarade sig tar bort vi hen från spelet
     public void blazerSpelareVidare() {
         Scoreboard scoreboard = new Scoreboard();
@@ -86,7 +80,6 @@ public class BlazerTarning {
         Spelare.nySpelareArr.removeIf(n -> (n.isPlayerKeepTrue == 0));
         scoreboard.sortSpelarLista();
     }
-
     //här kastar vi tärningen med statiska värden direkt i metoden -> 1 täning, 6 sidor.
     public void kastaBlazerTarning() {
         Tarningar tarning = new Tarningar();

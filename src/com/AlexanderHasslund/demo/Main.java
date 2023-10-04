@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
         //instansiera allt här
-        HanteraVinnare hanteraVinnare = new HanteraVinnare();
+        HanteraVinnareTest hanteraVinnareTest = new HanteraVinnareTest();
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
         BlazerMain blazerMain = new BlazerMain();
         SpelarLogik spelarLogik = new SpelarLogik();
@@ -51,7 +51,9 @@ public class Main {
                             if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare > 1) {
 
                                 //hanteraVinnare.hanteraVinnare();
-                                hanteraVinnare.mainHanteraVinnare();
+                                //hanteraVinnare.mainHanteraVinnare();
+                               hanteraVinnareTest.hanteraVinnare();
+
 
                             } else if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare == 1) {
                                 System.out.println("Du rullade bra!");

@@ -17,7 +17,7 @@ public class Spelare {
 
     //konstruktor för att kunna skapa upp spelaren
     public Spelare(String namn, int alder, int uniktSpelarId, int totalSumma) { //<-- tog bort int totalSumma...
-        Tarningar tarning = new Tarningar();
+
         this.namn = namn;
         this.alder = alder;
         this.uniktSpelarId = uniktSpelarId;
