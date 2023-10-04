@@ -15,7 +15,6 @@ public class SpelarLogik {
             System.out.println("\n\033[1;37mDet är roligare att spela med fler \nMen det går bra att spela själv med! \nHa så kul!\033[0m");
             Thread.sleep(1500);
         }
-
     }
 
     //lagrar värdet och håller det i den statiska attri i klassen, för att kunna spela flera gånger med samma värden...

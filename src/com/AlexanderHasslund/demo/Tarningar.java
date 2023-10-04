@@ -10,8 +10,8 @@ import java.util.stream.IntStream;
 public class Tarningar {
 
     //dessa är statiska eftersom jag vill behålla värdet som lagras här, detta är alltså med mening
-    public int antalTarningar;
-    public int antalSidor;
+    public static int antalTarningar;
+    public static int antalSidor;
     public static int turer;
 
     public void setAntalTarningar(int antalTarningar) {

@@ -62,7 +62,7 @@ public class BlazerTarning {
     //om spelaren är över 10 poäng får den en tagg
     public void blazerRondaRegler() {
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-            if (Spelare.nySpelareArr.get(i).totalSumma > 10) {
+            if (Spelare.nySpelareArr.get(i).totalSumma >= 10) {
                 Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 1;
             }
         }

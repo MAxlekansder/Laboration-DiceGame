@@ -21,6 +21,7 @@ public class Input { // scannerklass som tar emot både string och int -> styr d
         return stringInput;
     }
 
+
     public static int intInput() {
         int intInput = 0;
         boolean intCheck = true;

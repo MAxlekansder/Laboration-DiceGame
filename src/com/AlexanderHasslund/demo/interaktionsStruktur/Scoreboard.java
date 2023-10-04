@@ -14,41 +14,38 @@ public class Scoreboard{
         System.out.println(String.format("\n%-20s", "\033[1;33m --- SCOREBOARD  RUNDA "+ Tarningar.turer + " av " + spelarLogik.antalRundor + " ---\u001B[0m "));
 
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-
             System.out.print("\033[1;33mSPELARE " + Spelare.nySpelareArr.get(i).uniktSpelarId + "\u001B[0m ");
             System.out.println(Spelare.nySpelareArr.get(i).toString());
-
         }
+
         System.out.println("Tryck enter för att fortsätta...");
         String enter = Input.stringInput();
     }
 
+
     public void utslagsScoreboard() {
-        SpelarLogik spelarLogik = new SpelarLogik();
 
         System.out.println(String.format("\n%-20s", "\033[1;33m --- UTSLAGSRUNDA ---\u001B[0m "));
 
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-
             System.out.print("\033[1;33mSPELARE " + Spelare.nySpelareArr.get(i).uniktSpelarId + "\u001B[0m ");
             System.out.println(Spelare.nySpelareArr.get(i).toString());
         }
+
         System.out.println("Tryck enter för att fortsätta...");
         String enter = Input.stringInput();
     }
 
-    public void blazerScoreboard() {
-        BlazerTarning blazerTarning = new BlazerTarning();
 
+    public void blazerScoreboard() {
 
         System.out.println(String.format("\n%-20s", "\033[1;33m --- SCOREBOARD ---\u001B[0m "));
 
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-
             System.out.print("\033[1;33mSPELARE " + Spelare.nySpelareArr.get(i).uniktSpelarId + "\u001B[0m ");
             System.out.println(Spelare.nySpelareArr.get(i).toString());
-
         }
+
         System.out.println("Tryck enter för att fortsätta...");
         String enter = Input.stringInput();
     }
