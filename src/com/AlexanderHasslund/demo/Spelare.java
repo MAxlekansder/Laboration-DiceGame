@@ -26,19 +26,13 @@ public class Spelare {
     }
 
     //används för att overrida så att objekten i arraylist printas...
-   public String toString() {
+    public String toString() {
         return (
                 "Namn: " + this.namn.toUpperCase() + " || " +
-                "Unikt spelarId: " + this.uniktSpelarId + " || " +
-                "Ålder: "+ this.alder + " || " +
-                "Summa tärningar: " + this.totalSumma + " || " +
-                "Sant: " + this.isPlayerKeepTrue //<-- ta bort den härifrån sen, bara för logik i backendsyfte...
-                );
+                        "Unikt spelarId: " + this.uniktSpelarId + " || " +
+                        "Ålder: " + this.alder + " || " +
+                        "Summa tärningar: " + this.totalSumma + " || "
+                // + "Sant: " + this.isPlayerKeepTrue //<-- ta bort den härifrån sen, bara för logik i backendsyfte...
+        );
     }
-
-    public int spelareAntal() {
-        int antalSpelare = Input.intInput();
-        return antalSpelare;
-    }
-
 }

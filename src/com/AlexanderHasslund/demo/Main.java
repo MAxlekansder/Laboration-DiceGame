@@ -43,17 +43,12 @@ public class Main {
                         }
                         break;
                     case 2:
-
                         if (spelareReggad && spelarLogik.sparaAntalSpelare >= 1) {
                             tarningsLogik.checkaOchKasta();
                             turer++;
 
                             if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare > 1) {
-
-                                //hanteraVinnare.hanteraVinnare();
-                                //hanteraVinnare.mainHanteraVinnare();
                                hanteraVinnareTest.hanteraVinnare();
-
 
                             } else if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare == 1) {
                                 System.out.println("Du rullade bra!");
@@ -72,7 +67,6 @@ public class Main {
 
                     case 3:
                         if (spelareReggad) {
-
                             blazerMain.blazerMain();
                             break;
                         } else {

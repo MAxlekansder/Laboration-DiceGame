@@ -26,7 +26,7 @@ public class BlazerTarning {
 
                     kastaBlazerTarning();
 
-                    if (i == 3) {
+                    if (i == 2) {
                         blazerRondaRegler();
                         blazerSpelareVidare();
                         scoreboard.blazerScoreboard();

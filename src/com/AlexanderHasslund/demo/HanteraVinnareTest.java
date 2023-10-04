@@ -15,6 +15,12 @@ public class HanteraVinnareTest {
         return fleraVinnareVal;
     }
 
+    public void resetSpelareSumma() {
+        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
+            Spelare.nySpelareArr.get(i).totalSumma = 0;
+        }
+    }
+
     public void hanteraVinnare() throws InterruptedException {
         SpelarInfoMeddelanden SpelarInfoMeddelanden = new SpelarInfoMeddelanden();
 
@@ -99,15 +105,10 @@ public class HanteraVinnareTest {
 
             } else {
                 System.out.println("Välj rätt input!");
-                setFleraVinnareVal();
+                //setFleraVinnareVal();
             }
 
         } while (testLoop);
     }
 
-    public void resetSpelareSumma() {
-        for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
-            Spelare.nySpelareArr.get(i).totalSumma = 0;
-        }
-    }
 }
