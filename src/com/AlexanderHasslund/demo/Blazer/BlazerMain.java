@@ -15,7 +15,6 @@ public class BlazerMain {
 
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             Spelare.nySpelareArr.get(i).totalSumma = 0;
-
         }
         for (int i = 0; i < Spelare.nySpelareArr.size(); i++) {
             Spelare.nySpelareArr.get(i).isPlayerKeepTrue = 0;

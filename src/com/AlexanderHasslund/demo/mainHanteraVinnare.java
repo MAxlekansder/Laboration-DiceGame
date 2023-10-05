@@ -3,7 +3,7 @@ import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 import com.AlexanderHasslund.demo.interaktionsStruktur.SpelarInfoMeddelanden;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
 
-public class HanteraVinnareTest {
+public class mainHanteraVinnare {
     int introCount;
     String fleraVinnareVal;
     boolean testLoop;
@@ -66,7 +66,6 @@ public class HanteraVinnareTest {
     public void fleraVinnare2() throws InterruptedException {
         Tarningar tarningar = new Tarningar();
         Scoreboard scoreboard = new Scoreboard();
-        //boolean testLoop = true;
 
         do {
             if (getFleraVinnareVal().toLowerCase().equals("j")) {

@@ -2,7 +2,6 @@ package com.AlexanderHasslund.demo.Blazer;
 
 import com.AlexanderHasslund.demo.*;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Input;
-import com.AlexanderHasslund.demo.interaktionsStruktur.Menyer;
 import com.AlexanderHasslund.demo.interaktionsStruktur.Scoreboard;
 import com.AlexanderHasslund.demo.interaktionsStruktur.SpelarInfoMeddelanden;
 
@@ -11,7 +10,7 @@ public class BlazerTarning {
     //hanterar alla övriga metoder och kör alla metoder beroende på ett par kriterier
     public void antalOmgångar() throws InterruptedException {
         Scoreboard scoreboard = new Scoreboard();
-        HanteraVinnareTest hanteraVinnareTest = new HanteraVinnareTest();
+        mainHanteraVinnare mainHanteraVinnare = new mainHanteraVinnare();
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
 
         if (Spelare.nySpelareArr.isEmpty()) {
@@ -44,7 +43,7 @@ public class BlazerTarning {
                         break;
                     }
                     if (i == 5 && Spelare.nySpelareArr.size() > 1) {
-                        hanteraVinnareTest.hanteraVinnare();
+                        mainHanteraVinnare.hanteraVinnare();
                         SpelarLogik.isPlayingBlazer = false;
                         break;
                     }

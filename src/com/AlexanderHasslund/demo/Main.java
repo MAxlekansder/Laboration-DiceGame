@@ -8,9 +8,11 @@ import java.util.*;
 
 public class Main {
 
+
+
     public static void main(String[] args) throws InterruptedException {
         //instansiera allt här
-        HanteraVinnareTest hanteraVinnareTest = new HanteraVinnareTest();
+        mainHanteraVinnare mainHanteraVinnare = new mainHanteraVinnare();
         SpelarInfoMeddelanden spelarInfoMeddelanden = new SpelarInfoMeddelanden();
         BlazerMain blazerMain = new BlazerMain();
         SpelarLogik spelarLogik = new SpelarLogik();
@@ -48,7 +50,7 @@ public class Main {
                             turer++;
 
                             if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare > 1) {
-                               hanteraVinnareTest.hanteraVinnare();
+                               mainHanteraVinnare.hanteraVinnare();
 
                             } else if (turer == spelarLogik.antalRundor && spelarLogik.sparaAntalSpelare == 1) {
                                 System.out.println("Du rullade bra!");
