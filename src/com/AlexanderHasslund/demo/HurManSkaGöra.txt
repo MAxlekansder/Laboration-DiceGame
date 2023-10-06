@@ -1,31 +1,3 @@
-TODO
-Användaren ska kunna välja med hjälp av scanner:
-antalet spelare
-antal tärningar
-spelarens namn
-
-FIXME Se till att man inte kan gå vidare om man skriver in felaktiga värden i stringinput och intinput
-
-
-
-TODO REGLER
-Varje spelare får en eller flera tärningar att kasta per tur
-Spelaren med högst poäng vinner
-Åtminstone ska två spelare vara med - bygga in om man spelar själv?
-Sätt upp en regel som ger en utslagsfråga
-om två får samma tal - ska de få rulla igen?
-Om flera spelar kan man börja solla kanske?
-Välja game mode? Olika game modes?
-Hur många tärningar ska man kasta?
-
-
-TODO VG
-Hantera två vinnare
-Scanner ska befinna sig i en egen klass
-hantera att rätt svar kommer in under inmatningen
-    namn får endast vara sträng
-    nummer får endast vara int
-
 
 
   //System.out.println(Arrays.deepToString(tarning.tarnin);
