@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SpelarLogikTest {
 
+
+
     @Test
     public void reggaSpelareTest() {
         SpelareTest spelareTest;
@@ -25,6 +27,7 @@ class SpelarLogikTest {
 
 
     }
+
     @Test
     public void resetSpelareSummaTest() {
         SpelareTest spelareTest;

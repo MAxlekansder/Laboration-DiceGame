@@ -12,14 +12,20 @@ public class TarningsLogik {
     public void checkaOchKasta() {
         Tarningar tarning = new Tarningar();
         Scoreboard scoreboard = new Scoreboard();
-
+        boolean catchSidorInput = true;
 
         if (sparadSida == 0) {
             System.out.println("Hur många sidor ska tärningen ha?");
-            sparadSida = Input.intInput();
+            do {
+                sparadSida = Input.intInput();
+                if (sparadSida > 1) {
+                    catchSidorInput = false;
+                } else {
+                    System.out.println("En tärning kan inte bara ha en sida... Välj igen: ");
+                }
+            } while (catchSidorInput);
             tarning.setSidorTarningar(sparadSida);
         }
-
         if (sparatAntal == 0) {
             System.out.println("Hur många tärningar ska kastas per spelare?");
             sparatAntal = Input.intInput();
